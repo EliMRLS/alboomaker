@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  database: alboomaker-dev
+
+staging:
+  adapter: postgresql
+  database: alboomaker-stg
+
+test:
+  adapter: postgresql
+  database: alboomaker-tst
+
+production:
+  adapter: postgresql
+  database: alboomaker-prd
+
