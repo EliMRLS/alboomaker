@@ -10,7 +10,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header#fh5co-header{:role => "banner"}
-      .fluid-container{"data-turbolinks" => "false"}
+      .fluid-container
         %nav.navbar.navbar-default
           .navbar-header
             / Mobile Toggle Menu Button
@@ -50,4 +50,5 @@
                 %a.log-in{:href => "#"}
                   %span Login
     = yield
+
 

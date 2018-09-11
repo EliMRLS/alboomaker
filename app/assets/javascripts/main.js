@@ -655,3 +655,12 @@ document.addEventListener("turbolinks:load", function() {
 
 
 }());
+
+(function() {
+  if (typeof Turbolinks === "undefined" || Turbolinks === null) {
+    location.reload;
+  }
+
+  Turbolinks.dispatch("turbolinks:load");
+
+}).call(this);
