@@ -1,4 +1,5 @@
-;(function () {
+// ;(function () {
+document.addEventListener("turbolinks:load", function() {
 
 	'use strict';
 
@@ -42,8 +43,10 @@
 
 	};
 
-  document.addEventListener("turbolinks:load", function() {
-    $('.owl-carousel-fullwidth').owlCarousel({
+
+	var testimonialCarousel = function(){
+		var owl = $('.owl-carousel-fullwidth');
+		owl.owlCarousel({
 			items: 1,
 			loop: true,
 			margin: 0,
@@ -53,25 +56,9 @@
 			smartSpeed: 800,
 			autoHeight: true,
 			animateIn: 'fadeIn',
-      animateOut: 'fadeOut'
-    });
-  })
-
-  // var testimonialCarousel = function(){
-//     var owl = $('.owl-carousel-fullwidth');
-//     owl.owlCarousel({
-//       items: 1,
-//       loop: true,
-//       margin: 0,
-//       responsiveClass: true,
-//       nav: false,
-//       dots: true,
-//       smartSpeed: 800,
-//       autoHeight: true,
-//       animateIn: 'fadeIn',
-//       animateOut: 'fadeOut'
-//     });
-//   };
+        animateOut: 'fadeOut'
+		});
+	};
 
 	// Page Nav
 	var clickMenu = function() {
@@ -639,15 +626,14 @@
 	};
 
 	// Document on load.
-  // $(function(){
-  document.addEventListener("turbolinks:load", function() {
+	$(function(){
 
 		parallax();
 		burgerMenu();
 		clickMenu();
 		windowScroll();
 		navigationSection();
-		// testimonialCarousel();
+		testimonialCarousel();
 
 		// Animations
 		homeAnimate();
