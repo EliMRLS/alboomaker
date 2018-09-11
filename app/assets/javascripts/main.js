@@ -46,6 +46,7 @@ document.addEventListener("turbolinks:load", function() {
 
 	var testimonialCarousel = function(){
 		var owl = $('.owl-carousel-fullwidth');
+    console.log('working');
 		owl.owlCarousel({
 			items: 1,
 			loop: true,
