@@ -1,6 +1,4 @@
-// ;(function () {
-$(document).on('turbolinks:load', function() {
-
+;(function () {
 	'use strict';
 
 
@@ -44,22 +42,7 @@ $(document).on('turbolinks:load', function() {
 	};
 
 
-	var testimonialCarousel = function(){
-		var owl = $('.owl-carousel-fullwidth');
-    console.log('working');
-		owl.owlCarousel({
-			items: 1,
-			loop: true,
-			margin: 0,
-			responsiveClass: true,
-			nav: false,
-			dots: true,
-			smartSpeed: 800,
-			autoHeight: true,
-			animateIn: 'fadeIn',
-        animateOut: 'fadeOut'
-		});
-	};
+
 
 	// Page Nav
 	var clickMenu = function() {
@@ -634,7 +617,6 @@ $(document).on('turbolinks:load', function() {
 		clickMenu();
 		windowScroll();
 		navigationSection();
-		testimonialCarousel();
 
 		// Animations
 		homeAnimate();
@@ -657,11 +639,19 @@ $(document).on('turbolinks:load', function() {
 
 }());
 
-(function() {
-  if (typeof Turbolinks === "undefined" || Turbolinks === null) {
-    location.reload;
-  }
+function testimonialCarousel () {
+  $('.owl-carousel-fullwidth').owlCarousel({
+		items: 1,
+		loop: true,
+		margin: 0,
+		responsiveClass: true,
+		nav: false,
+		dots: true,
+		smartSpeed: 800,
+		autoHeight: true,
+		animateIn: 'fadeIn',
+      animateOut: 'fadeOut'
+	});
+};
 
-  Turbolinks.dispatch("turbolinks:load");
-
-}).call(this);
+$(document).on('turbolinks:load', testimonialCarousel);
