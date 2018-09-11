@@ -21,8 +21,8 @@
 //= require jquery.stellar.min
 //= require jquery.style.switcher
 //= require jquery.waypoints.min
-//= require main
 //= require modernizr-2.6.2.min
 //= require owl.carousel.min
 //= require respond.min
+//= require main
 //= require_tree .
