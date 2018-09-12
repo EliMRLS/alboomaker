@@ -24,5 +24,6 @@
 //= require modernizr-2.6.2.min
 //= require owl.carousel.min
 //= require respond.min
+//= tether
 //= require main
 //= require_tree .
