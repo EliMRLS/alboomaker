@@ -618,3 +618,7 @@ $(document).on('turbolinks:load', footerAnimate);
 $(document).on('turbolinks:load', blogAnimate);
 $(document).on('turbolinks:load', counter);
 $(document).on('turbolinks:load', counterWayPoint);
+
+document.addEventListener("turbolinks:load", function() {
+    console.log('main works!');
+});
