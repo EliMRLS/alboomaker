@@ -16,7 +16,8 @@
             / Mobile Toggle Menu Button
             %a.js-fh5co-nav-toggle.fh5co-nav-toggle{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :href => "#"}
               %i
-            %a.navbar-brand{:href => "index.html"} Twistttt
+            = link_to root_url do
+              .navbar-brand
           #navbar.navbar-collapse.collapse
             %ul.nav.navbar-nav.navbar-right
               %li.active
