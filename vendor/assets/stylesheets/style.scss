@@ -137,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 480px) {
   #fh5co-header #navbar li.active a {
-    color: #FA5555;
+    color: #000;
   }
 }
 #fh5co-header #navbar li.active a span:before {
@@ -201,7 +201,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #fh5co-header .navbar-brand {
   background-image: url("alboomaker-logo.svg");
-  background-repeat: no-repeat, repeat;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 150px;
 }
 
@@ -224,9 +225,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
   top: 0;
 }
-#fh5co-header.navbar-fixed-top .navbar-brand {
-  color: #535659;
-}
+
 #fh5co-header.navbar-fixed-top #navbar li a {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
@@ -241,18 +240,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #fh5co-header.navbar-fixed-top #navbar li.active a {
-  color: #FA5555 !important;
+  color: white !important;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header.navbar-fixed-top #navbar li.active a {
-    color: #FA5555 !important;
+    color: white !important;
   }
 }
 #fh5co-header.navbar-fixed-top #navbar li.active a span:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-  background-color: #FA5555;
+  background-color: white;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header.navbar-fixed-top #navbar li.active a span:before {
@@ -274,13 +273,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: transparent;
 }
 #fh5co-header.navbar-fixed-top #navbar li.call-to-action a.sign-up {
-  border: 2px solid #FA5555;
-  background: #FA5555;
+  border: 2px solid white;
+  background: white;
 }
 
 #fh5co-header.navbar-fixed-top #navbar li.call-to-action a.log-in {
-  border: 2px solid #FA5555;
-  background: #FA5555;
+  border: 2px solid white;
+  background: white;
 }
 
 #fh5co-header .navbar-default {

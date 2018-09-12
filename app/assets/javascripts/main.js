@@ -1,11 +1,9 @@
 // iPad and iPhone detection
 function isiPad() {
-  console.log('ipad working');
   return (navigator.platform.indexOf("iPad") != -1);
 };
 
 function isiPhone() {
-  console.log('iphone working');
   return (
 	(navigator.platform.indexOf("iPhone") != -1) ||
 	(navigator.platform.indexOf("iPod") != -1)
@@ -13,12 +11,10 @@ function isiPhone() {
 };
 
 function parallax() {
-  console.log('parallax working');
   $(window).stellar();
 };
 
 function burgerMenu() {
-  console.log('burgerMenu working');
 	$('body').on('click', '.js-fh5co-nav-toggle', function(event){
 
 		event.preventDefault();
@@ -33,7 +29,6 @@ function burgerMenu() {
 
 // Page Nav
 function clickMenu() {
-  console.log('clickMenu working');
 	$('#navbar a:not([class="external"])').click(function(event){
 		var section = $(this).data('nav-section'),
 			navbar = $('#navbar');
@@ -57,7 +52,6 @@ function clickMenu() {
 
 // Reflect scrolling in navigation
 function navActive(section) {
-  console.log('navActive working');
 	var $el = $('#navbar > ul');
 	$el.find('li').removeClass('active');
 	$el.each(function(){
@@ -67,7 +61,6 @@ function navActive(section) {
 };
 
 function navigationSection() {
-  console.log('navSection working');
 	var $section = $('section[data-section]');
 
 	$section.waypoint(function(direction) {
@@ -91,7 +84,6 @@ function navigationSection() {
 
 // Window Scroll
 function windowScroll() {
-  console.log('windowScroll working');
 	var lastScrollTop = 0;
 
 	$(window).scroll(function(event){
@@ -119,7 +111,6 @@ function windowScroll() {
 	// Home
 
 function homeAnimate() {
-  console.log('home animate working');
 	if ( $('#fh5co-home').length > 0 ) {
 
 		$('#fh5co-home').waypoint( function( direction ) {
@@ -148,7 +139,6 @@ function homeAnimate() {
 };
 
 function exploreAnimate() {
-  console.log('explore animate working');
 	var explore = $('#fh5co-explore');
 	if ( explore.length > 0 ) {
 
@@ -201,7 +191,6 @@ function exploreAnimate() {
 };
 
 function gettingStartedAnimate() {
-  console.log('getting started animate working');
 	var started = $('.getting-started-1');
 	if ( started.length > 0 ) {
 
@@ -243,7 +232,6 @@ function gettingStartedAnimate() {
 };
 
 function gettingStarted2Animate() {
-  console.log('getting started 2 animate working');
 	var started = $('.getting-started-2');
 	if ( started.length > 0 ) {
 
@@ -284,7 +272,6 @@ function gettingStarted2Animate() {
 };
 
 function pricingAnimate() {
-  console.log('pricing animate working');
 	var pricing = $('#fh5co-pricing');
 	if ( pricing.length > 0 ) {
 
@@ -326,7 +313,6 @@ function pricingAnimate() {
 };
 
 function servicesAnimate() {
-  console.log('services animate working');
 	var services = $('#fh5co-services');
 	if ( services.length > 0 ) {
 
@@ -371,7 +357,6 @@ function servicesAnimate() {
 };
 
 function teamAnimate() {
-  console.log('teamAnimate working');
 	var team = $('#fh5co-team');
 	if ( team.length > 0 ) {
 
@@ -414,7 +399,6 @@ function teamAnimate() {
 };
 
 function faqAnimate() {
-  console.log('faqAnimate working');
 	var faq = $('#fh5co-faq');
 	if ( faq.length > 0 ) {
 
@@ -457,7 +441,6 @@ function faqAnimate() {
 };
 
 function trustedAnimate() {
-  console.log('trustedAnimate working');
 	var trusted = $('#fh5co-trusted');
 	if ( trusted.length > 0 ) {
 
@@ -500,7 +483,6 @@ function trustedAnimate() {
 };
 
 function footerAnimate() {
-  console.log('footerAnimate working');
 	var footer = $('#fh5co-footer');
 	if ( footer.length > 0 ) {
 
@@ -529,7 +511,6 @@ function footerAnimate() {
 };
 
 function blogAnimate() {
-  console.log('blogAnimate working');
 	var footer = $('#fh5co-blog');
 	if ( footer.length > 0 ) {
 
@@ -558,7 +539,6 @@ function blogAnimate() {
 };
 
 function counter() {
-  console.log('counter working');
 	$('.js-counter').countTo({
 		 formatter: function (value, options) {
       return value.toFixed(options.decimals);
@@ -567,7 +547,6 @@ function counter() {
 };
 
 function counterWayPoint() {
-  console.log('counterWayPoint working');
 	if ($('#fh5co-counter-section').length > 0 ) {
 		$('#fh5co-counter-section').waypoint( function( direction ) {
 
@@ -581,7 +560,6 @@ function counterWayPoint() {
 };
 
 function testimonialCarousel() {
-  console.log('carousel working');
   $('.owl-carousel-fullwidth').owlCarousel({
 		items: 1,
 		loop: true,
@@ -618,7 +596,3 @@ $(document).on('turbolinks:load', footerAnimate);
 $(document).on('turbolinks:load', blogAnimate);
 $(document).on('turbolinks:load', counter);
 $(document).on('turbolinks:load', counterWayPoint);
-
-document.addEventListener("turbolinks:load", function() {
-    console.log('main works!');
-});
