@@ -39,6 +39,9 @@
                 %a{"data-nav-section" => "help"}
                   %span Ayuda
               %li.call-to-action
+                %a#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Sign In
+
+              %li.call-to-action
                 %a.log-in
                   %span#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Login
               %li.call-to-action
