@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require main
 //= require bootstrap.min
 //= require google_map
 //= require jquery.countTo
@@ -24,5 +25,4 @@
 //= require modernizr-2.6.2.min
 //= require owl.carousel.min
 //= require respond.min
-//= require main
 //= require_tree .
