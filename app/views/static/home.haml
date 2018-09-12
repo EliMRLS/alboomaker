@@ -6,22 +6,44 @@
         .row
           .col-md-8.col-md-offset-2.text-center
             %h1.to-animate
-              One Page template for any type of
-              %span Businesses
+              Bienvenido a
+              %span Alboomaker
             %h2.to-animate
-              100% Free HTML5 Template. Licensed under
-              %a{:href => "http://creativecommons.org/licenses/by/3.0/", :target => "_blank"} Creative Commons Attribution 3.0.
+              Empieza tu proyecto descargándote nuestro programa gratuito
               %br/
-              Crafted with love by
-              %a.fh5co-link{:href => "http://freehtml5.co/", :target => "_blank", :title => "Free HTML5 Bootstrap Templates"} FREEHTML5.co
+              %p Selecciona tu sistema operativo. Recuerda que también puedes hacerlo desde esta misma web sin descargarte el programa
             .call-to-action
-              %a.demo.to-animate{:href => "#"}
-                %i.icon-power
-                Demo
-              %a.download.to-animate{:href => "#"}
+              %a.download.to-animate{:href => "https://s3.amazonaws.com/printoria-web/albumaker/albumaker.exe"}
                 %i.icon-download
-                Download
-%section#fh5co-services{"data-section" => "services"}
+                WINDOWS
+              %a.download.to-animate{:href => "https://s3.amazonaws.com/printoria-web/albumaker/albumaker.exe"}
+                %i.icon-download
+                MAC
+%section#fh5co-blog{"data-section" => "products"}
+  .fh5co-blog
+    .container
+      .row
+        .col-md-12.section-heading.text-center
+          %h2.to-animate
+            %span Elige tu álbum
+          .row
+            .col-md-8.col-md-offset-2.subtext
+              %h3.to-animate Selecciona el formato que más te guste y crea fácilmente tu álbum de fotos digital totalmente personalizado y con calidad Premium. Inmortaliza tus mejores momentos y consérvalos para siempre con Alboomaker
+      .row
+        - @products.each do |product|
+          .col-md-6.to-animate.blog
+            .blog-grid{:style => "background-image: url(images/full_image_5.jpg);"}
+              .date
+                %span 03
+                %small Aug
+            %a.desc{:href => "#"}
+              .desc-grid
+                %h3= product.name.humanize
+              .reading
+                %i.icon-arrow-right2
+
+
+%section#fh5co-services{"data-section" => "howto"}
   .fh5co-services
     .container
       .row
@@ -130,233 +152,7 @@
               .fh5co-post.to-animate
                 %h3 Lots of Elements
                 %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-%section#fh5co-explore{"data-section" => "explore"}
-  .container
-    .row
-      .col-md-12.section-heading.text-center
-        %h2.to-animate
-          %span Explore Our Projects
-        .row
-          .col-md-8.col-md-offset-2.subtext.to-animate
-            %h3 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-  .fh5co-project
-    .container-fluid
-      .row
-        .col-md-4.text-center
-          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-1.jpg'});"}
-            .desc
-              %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
-              %p.download
-                %a{:href => "#"}
-                  %i.icon-download
-              %p.love
-                %a{:href => "#"}
-                  %i.icon-heart-o
-          .row
-            .col-md-6
-              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-2.jpg'});"}
-                .desc
-                  %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
-                  %p.download
-                    %a{:href => "#"}
-                      %i.icon-download
-                  %p.love
-                    %a{:href => "#"}
-                      %i.icon-heart-o
-            .col-md-6
-              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-5.jpg'});"}
-                .desc
-                  %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
-                  %p.download
-                    %a{:href => "#"}
-                      %i.icon-download
-                  %p.love
-                    %a{:href => "#"}
-                      %i.icon-heart-o
-          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-9.jpg'});"}
-            .desc
-              %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
-              %p.download
-                %a{:href => "#"}
-                  %i.icon-download
-              %p.love
-                %a{:href => "#"}
-                  %i.icon-heart-o
-        .col-md-4.text-center
-          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-4.jpg'});"}
-            .desc
-              %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
-              %p.download
-                %a{:href => "#"}
-                  %i.icon-download
-              %p.love
-                %a{:href => "#"}
-                  %i.icon-heart-o
-          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-3.jpg'});"}
-            .desc
-              %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
-              %p.download
-                %a{:href => "#"}
-                  %i.icon-download
-              %p.love
-                %a{:href => "#"}
-                  %i.icon-heart-o
-          .row
-            .col-md-6
-              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-10.jpg'});"}
-                .desc
-                  %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
-                  %p.download
-                    %a{:href => "#"}
-                      %i.icon-download
-                  %p.love
-                    %a{:href => "#"}
-                      %i.icon-heart-o
-            .col-md-6
-              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-11.jpg'});"}
-                .desc
-                  %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
-                  %p.download
-                    %a{:href => "#"}
-                      %i.icon-download
-                  %p.love
-                    %a{:href => "#"}
-                      %i.icon-heart-o
-        .col-md-4.text-center
-          .row
-            .col-md-6
-              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-6.jpg'});"}
-                .desc
-                  %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
-                  %p.download
-                    %a{:href => "#"}
-                      %i.icon-download
-                  %p.love
-                    %a{:href => "#"}
-                      %i.icon-heart-o
-            .col-md-6
-              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-7.jpg'});"}
-                .desc
-                  %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
-                  %p.download
-                    %a{:href => "#"}
-                      %i.icon-download
-                  %p.love
-                    %a{:href => "#"}
-                      %i.icon-heart-o
-          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-8.jpg'});"}
-            .desc
-              %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
-              %p.download
-                %a{:href => "#"}
-                  %i.icon-download
-              %p.love
-                %a{:href => "#"}
-                  %i.icon-heart-o
-          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-12.jpg'});"}
-            .desc
-              %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
-              %p.download
-                %a{:href => "#"}
-                  %i.icon-download
-              %p.love
-                %a{:href => "#"}
-                  %i.icon-heart-o
-  #fh5co-counter-section.fh5co-counters
-    .container
-      .row
-        .col-md-12.section-heading.text-center
-          %h2.to-animate
-            %span Some Fun Facts
-          .row
-            .col-md-8.col-md-offset-2.subtext
-              %h3.to-animate Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.
-      .row.to-animate
-        .col-md-3.text-center
-          %span.fh5co-counter.js-counter{"data-from" => "0", "data-refresh-interval" => "50", "data-speed" => "5000", "data-to" => "3452"}
-          %span.fh5co-counter-label Cups of Coffee
-        .col-md-3.text-center
-          %span.fh5co-counter.js-counter{"data-from" => "0", "data-refresh-interval" => "50", "data-speed" => "5000", "data-to" => "234"}
-          %span.fh5co-counter-label Client
-        .col-md-3.text-center
-          %span.fh5co-counter.js-counter{"data-from" => "0", "data-refresh-interval" => "50", "data-speed" => "5000", "data-to" => "6542"}
-          %span.fh5co-counter-label Projects
-        .col-md-3.text-center
-          %span.fh5co-counter.js-counter{"data-from" => "0", "data-refresh-interval" => "50", "data-speed" => "5000", "data-to" => "8687"}
-          %span.fh5co-counter-label Finished Projects
-%section#fh5co-testimony.fh5co-bg-color{"data-section" => "testimony"}
-  .container
-    .row
-      .col-md-12.section-heading.text-center
-        %h2.to-animate
-          %span Our Happy Clients
-        .row
-          .col-md-8.col-md-offset-2.subtext.to-animate
-    .row
-      .col-md-12.to-animate
-        .wrap-testimony
-          .owl-carousel-fullwidth
-            .item
-              .testimony-slide.active.text-center
-                %figure
-                  = image_tag "person2.jpg"
-                %span
-                  John Doe, via
-                  %a.twitter{:href => "#"} Twitter
-                %blockquote
-                  %p “Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
-            .item
-              .testimony-slide.active.text-center
-                %figure
-                  = image_tag "person3.jpg"
-                %span
-                  John Doe, via
-                  %a.twitter{:href => "#"} Twitter
-                %blockquote
-                  %p “Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
-            .item
-              .testimony-slide.active.text-center
-                %figure
-                  = image_tag "person2.jpg"
-                %span
-                  John Doe, via
-                  %a.twitter{:href => "#"} Twitter
-                %blockquote
-                  %p “Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
-.getting-started.getting-started-1
-  .getting-grid{:style => "background-image:  url(images/full_image_3.jpg);"}
-    .desc
-      %h2
-        Getting
-        %span Started
-      %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-  %a.getting-grid2{:href => "#"}
-    .call-to-action.text-center
-      %p.sign-up{:href => "#"} Sign Up For Free
+
 %section#fh5co-pricing{"data-section" => "pricing"}
   .fh5co-pricing
     .container
@@ -439,118 +235,8 @@
           %p
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
             %a{:href => "#"} Learn More
-%section#fh5co-team.fh5co-bg-color{"data-section" => "team"}
-  .fh5co-team
-    .container
-      .row
-        .col-md-12.section-heading.text-center
-          %h2.to-animate
-            %span Meet The Team
-          .row
-            .col-md-8.col-md-offset-2.subtext
-              %h3.to-animate Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.
-      .row
-        .col-md-4
-          .team-box.text-center.to-animate-2
-            .user
-              = image_tag "person4.jpg", class: "img-responsive"
-            %h3 Roger Garfield
-            %span.position Co-Founder, Lead Developer
-            %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            %ul.social-media
-              %li
-                %a.facebook{:href => "#"}
-                  %i.icon-facebook
-              %li
-                %a.twitter{:href => "#"}
-                  %i.icon-twitter
-              %li
-                %a.dribbble{:href => "#"}
-                  %i.icon-dribbble
-              %li
-                %a.codepen{:href => "#"}
-                  %i.icon-codepen
-              %li
-                %a.github{:href => "#"}
-                  %i.icon-github-alt
-        .col-md-4
-          .team-box.text-center.to-animate-2
-            .user
-              = image_tag "person2.jpg", class: "img-responsive"
-            %h3 Kevin Steve
-            %span.position Co-Founder, Product Designer
-            %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            %ul.social-media
-              %li
-                %a.facebook{:href => "#"}
-                  %i.icon-facebook
-              %li
-                %a.twitter{:href => "#"}
-                  %i.icon-twitter
-              %li
-                %a.dribbble{:href => "#"}
-                  %i.icon-dribbble
-              %li
-                %a.codepen{:href => "#"}
-                  %i.icon-codepen
-              %li
-                %a.github{:href => "#"}
-                  %i.icon-github-alt
-        .col-md-4
-          .team-box.text-center.to-animate-2
-            .user
-              = image_tag "person3.jpg", class: "img-responsive"
-            %h3 Ross Standford
-            %span.position Full Stack Developer
-            %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-            %ul.social-media
-              %li
-                %a.facebook{:href => "#"}
-                  %i.icon-facebook
-              %li
-                %a.twitter{:href => "#"}
-                  %i.icon-twitter
-              %li
-                %a.dribbble{:href => "#"}
-                  %i.icon-dribbble
-              %li
-                %a.codepen{:href => "#"}
-                  %i.icon-codepen
-              %li
-                %a.github{:href => "#"}
-                  %i.icon-github-alt
-%section#fh5co-blog{"data-section" => "blog"}
-  .fh5co-blog
-    .container
-      .row
-        .col-md-12.section-heading.text-center
-          %h2.to-animate
-            %span Read Our Blog
-          .row
-            .col-md-8.col-md-offset-2.subtext
-              %h3.to-animate Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.
-      .row
-        .col-md-6.to-animate.blog
-          .blog-grid{:style => "background-image: url(images/full_image_5.jpg);"}
-            .date
-              %span 03
-              %small Aug
-          %a.desc{:href => "#"}
-            .desc-grid
-              %h3 Download Free HTML5 Template
-            .reading
-              %i.icon-arrow-right2
-        .col-md-6.to-animate.blog
-          .blog-grid{:style => "background-image: url(images/full_image_4.jpg);"}
-            .date
-              %span 04
-              %small Aug
-          %a.desc{:href => "#"}
-            .desc-grid
-              %h3 Download Free HTML5 Template
-            .reading
-              %i.icon-arrow-right2
-%section#fh5co-faq.fh5co-bg-color{"data-section" => "faq"}
+
+%section#fh5co-faq.fh5co-bg-color{"data-section" => "help"}
   .fh5co-faq
     .container
       .row
@@ -593,98 +279,3 @@
             .desc
               %h3 Is Twist free?
               %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-%section#fh5co-trusted{"data-section" => "trusted"}
-  .fh5co-trusted
-    .container
-      .row
-        .col-md-12.section-heading.text-center
-          %h2.to-animate
-            %span Trusted By
-          .row
-            .col-md-8.col-md-offset-2.subtext
-              %h3.to-animate We’re trusted by these popular companies
-      .row
-        .col-md-2.col-sm-3.col-xs-6.col-sm-offset-0.col-md-offset-1
-          .partner-logo.to-animate-2
-            = image_tag "logo1.png", class: "img-responsive"
-        .col-md-2.col-sm-3.col-xs-6
-          .partner-logo.to-animate-2
-            = image_tag "logo2.png", class: "img-responsive"
-        .col-md-2.col-sm-3.col-xs-6
-          .partner-logo.to-animate-2
-            = image_tag "logo3.png", class: "img-responsive"
-        .col-md-2.col-sm-3.col-xs-6
-          .partner-logo.to-animate-2
-            = image_tag "logo4.png", class: "img-responsive"
-        .col-md-2.col-sm-12.col-xs-12
-          .partner-logo.to-animate-2
-            = image_tag "logo5.png", class: "img-responsive"
-.getting-started.getting-started-1
-  .getting-grid{:style => "background-image:  url(images/full_image_3.jpg);"}
-    .desc
-      %h2
-        Getting
-        %span Started
-      %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-  %a.getting-grid2{:href => "#"}
-    .call-to-action.text-center
-      %p.sign-up{:href => "#"} Sign Up For Free
-#fh5co-footer{:role => "contentinfo"}
-  .container
-    .row
-      .col-md-4.to-animate
-        %h3.section-title About Us
-        %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.
-        %p.copy-right
-          © 2015 Twist Free Template.
-          = succeed "All" do
-            %br/
-          %br/
-          Designed by
-          %a{:href => "http://freehtml5.co/", :target => "_blank"} FREEHTML5.co
-          Demo Images:
-          %a{:href => "http://unsplash.com/", :target => "_blank"} Unsplash
-      .col-md-4.to-animate
-        %h3.section-title Our Address
-        %ul.contact-info
-          %li
-            %i.icon-map-marker>
-            198 West 21th Street, Suite 721 New York NY 10016
-          %li
-            %i.icon-phone>
-            + 1235 2355 98
-          %li
-            %i.icon-envelope
-            %a{:href => "#"} info@yoursite.com
-          %li
-            %i.icon-globe2
-            %a{:href => "#"} www.yoursite.com
-        %h3.section-title Connect with Us
-        %ul.social-media
-          %li
-            %a.facebook{:href => "#"}
-              %i.icon-facebook
-          %li
-            %a.twitter{:href => "#"}
-              %i.icon-twitter
-          %li
-            %a.dribbble{:href => "#"}
-              %i.icon-dribbble
-          %li
-            %a.github{:href => "#"}
-              %i.icon-github-alt
-      .col-md-4.to-animate
-        %h3.section-title Drop us a line
-        %form.contact-form
-          .form-group
-            %label.sr-only{:for => "name"} Name
-            %input#name.form-control{:placeholder => "Name", :type => "name"}
-          .form-group
-            %label.sr-only{:for => "email"} Email
-            %input#email.form-control{:placeholder => "Email", :type => "email"}
-          .form-group
-            %label.sr-only{:for => "message"} Message
-            %textarea#message.form-control{:placeholder => "Message", :rows => "7"}
-          .form-group
-            %input#btn-submit.btn.btn-send-message.btn-md{:type => "submit", :value => "Send Message"}
-#map.fh5co-map

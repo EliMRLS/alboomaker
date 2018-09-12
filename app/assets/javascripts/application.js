@@ -25,4 +25,6 @@
 //= require jquery.style.switcher
 //= require modernizr-2.6.2.min
 //= require respond.min
+//= require tpxHighLevelBasketAPI_alboomaker
+//= require basicModal.min
 //= require_tree .

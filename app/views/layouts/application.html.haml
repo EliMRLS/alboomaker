@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body{onload: "tpxHighLevelBasketInitialise()"}
     %header#fh5co-header{:role => "banner"}
       .fluid-container
         %nav.navbar.navbar-default
@@ -21,35 +21,90 @@
           #navbar.navbar-collapse.collapse
             %ul.nav.navbar-nav.navbar-right
               %li.active
-                %a{"data-nav-section" => "home", :href => "#"}
-                  %span Home
+                %a{"data-nav-section" => "home"}
+                  %span Descarga álbumes
+              %li.active
+                %a{"data-nav-section" => "products"}
+                  %span Álbumes
               %li
-                %a{"data-nav-section" => "services", :href => "#"}
-                  %span Services
+                %a{"data-nav-section" => "howto"}
+                  %span ¿Cómo lo hacemos?
               %li
-                %a{"data-nav-section" => "explore", :href => "#"}
-                  %span Project
+                %a{"data-nav-section" => "options"}
+                  %span Opciones
               %li
-                %a{"data-nav-section" => "testimony", :href => "#"}
-                  %span Testimony
+                %a{"data-nav-section" => "pricing"}
+                  %span Precios
               %li
-                %a{"data-nav-section" => "pricing", :href => "#"}
-                  %span Pricing
-              %li
-                %a{"data-nav-section" => "team", :href => "#"}
-                  %span Team
-              %li
-                %a{"data-nav-section" => "blog", :href => "#"}
-                  %span Blog
-              %li
-                %a{"data-nav-section" => "faq", :href => "#"}
-                  %span FAQ
+                %a{"data-nav-section" => "help"}
+                  %span Ayuda
               %li.call-to-action
-                %a.sign-up{:href => "#"}
-                  %span Sign Up
+                %a.log-in
+                  %span#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Login
               %li.call-to-action
-                %a.log-in{:href => "#"}
-                  %span Login
+                %a.log-in
+                  %span#register{:href => "#", :onclick => "tpxHighLevelRegisterInitControl()"} Mi cuenta
+              %li
+                %a
+                  %span Ayuda
     = yield
 
+    #fh5co-footer{:role => "contentinfo"}
+      .container
+        .row
+          .col-md-4.to-animate
+            %h3.section-title About Us
+            %p Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.
+            %p.copy-right
+              © 2015 Twist Free Template.
+              = succeed "All" do
+                %br/
+              %br/
+              Designed by
+              %a{:href => "http://freehtml5.co/", :target => "_blank"} FREEHTML5.co
+              Demo Images:
+              %a{:href => "http://unsplash.com/", :target => "_blank"} Unsplash
+          .col-md-4.to-animate
+            %h3.section-title Our Address
+            %ul.contact-info
+              %li
+                %i.icon-map-marker>
+                198 West 21th Street, Suite 721 New York NY 10016
+              %li
+                %i.icon-phone>
+                + 1235 2355 98
+              %li
+                %i.icon-envelope
+                %a{:href => "#"} info@yoursite.com
+              %li
+                %i.icon-globe2
+                %a{:href => "#"} www.yoursite.com
+            %h3.section-title Connect with Us
+            %ul.social-media
+              %li
+                %a.facebook{:href => "#"}
+                  %i.icon-facebook
+              %li
+                %a.twitter{:href => "#"}
+                  %i.icon-twitter
+              %li
+                %a.dribbble{:href => "#"}
+                  %i.icon-dribbble
+              %li
+                %a.github{:href => "#"}
+                  %i.icon-github-alt
+          .col-md-4.to-animate
+            %h3.section-title Drop us a line
+            %form.contact-form
+              .form-group
+                %label.sr-only{:for => "name"} Name
+                %input#name.form-control{:placeholder => "Name", :type => "name"}
+              .form-group
+                %label.sr-only{:for => "email"} Email
+                %input#email.form-control{:placeholder => "Email", :type => "email"}
+              .form-group
+                %label.sr-only{:for => "message"} Message
+                %textarea#message.form-control{:placeholder => "Message", :rows => "7"}
+              .form-group
+                %input#btn-submit.btn.btn-send-message.btn-md{:type => "submit", :value => "Send Message"}
 
