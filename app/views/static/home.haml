@@ -28,15 +28,13 @@
             %span Elige tu álbum
           .row
             .col-md-8.col-md-offset-2.subtext
-              %h3.to-animate Selecciona el formato que más te guste y crea fácilmente tu álbum de fotos digital totalmente personalizado y con calidad Premium. Inmortaliza tus mejores momentos y consérvalos para siempre con Alboomaker
+              %h3.to-animate Selecciona el formato que más te guste y crea fácilmente tu álbum de fotos digital totalmente personalizado y con calidad Premium. Inmortaliza tus mejores momentos y consérvalos para siempre con Alboomaker.
       .row
         - @products.each do |product|
           .col-md-6.to-animate.blog
             .blog-grid{:style => "background-image: url(images/full_image_5.jpg);"}
-              .date
-                %span 03
-                %small Aug
-            %a.desc{:href => "#"}
+            - href = CGI::parse(URI.parse(Product.find_by_code("#{product.code}")&.online_url).query)["id"].first
+            %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               .desc-grid
                 %h3= product.name.humanize
               .reading
