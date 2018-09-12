@@ -13,13 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.stellar.min
 //= require main
 //= require bootstrap.min
 //= require google_map
 //= require jquery.countTo
 //= require jquery.easing.1.3
 //= require jquery.min
-//= require jquery.stellar.min
 //= require jquery.style.switcher
 //= require jquery.waypoints.min
 //= require modernizr-2.6.2.min
