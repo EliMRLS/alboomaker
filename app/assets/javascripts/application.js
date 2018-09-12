@@ -16,10 +16,10 @@
 //= require jquery.stellar.min
 //= require jquery.waypoints.min
 //= require owl.carousel.min
+//= require jquery.countTo
 //= require main
 //= require bootstrap.min
 //= require google_map
-//= require jquery.countTo
 //= require jquery.easing.1.3
 //= require jquery.min
 //= require jquery.style.switcher
