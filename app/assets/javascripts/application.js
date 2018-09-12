@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery.stellar.min
 //= require jquery.waypoints.min
+//= require owl.carousel.min
 //= require main
 //= require bootstrap.min
 //= require google_map
@@ -23,6 +24,5 @@
 //= require jquery.min
 //= require jquery.style.switcher
 //= require modernizr-2.6.2.min
-//= require owl.carousel.min
 //= require respond.min
 //= require_tree .
