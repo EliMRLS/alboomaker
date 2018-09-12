@@ -4,7 +4,7 @@ Version 1.4.0 - Friday, 15th July 2016
 Copyright 2011 - 2016 Taopix Limited
 */
 
-var kServerURL = 'http://alboomaker.alboomaker.com'; // kServerURL needs to be set to the weburl for the corresponding brand in Taopix Control Centre.
+var kServerURL = 'http://www.alboomaker.alboomaker.com'; // kServerURL needs to be set to the weburl for the corresponding brand in Taopix Control Centre.
 var gBasketCount = 0;
 var gBasketLoaded = false;
 var gProjectListLoaded = false;
