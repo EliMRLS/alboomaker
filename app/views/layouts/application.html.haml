@@ -38,18 +38,38 @@
               %li
                 %a{"data-nav-section" => "help"}
                   %span Ayuda
-              %li.call-to-action
-                %a#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Sign In
-
-              %li.call-to-action
-                %a.log-in
-                  %span#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Login
-              %li.call-to-action
-                %a.log-in
-                  %span#register{:href => "#", :onclick => "tpxHighLevelRegisterInitControl()"} Mi cuenta
               %li
-                %a
-                  %span Ayuda
+                %a#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Login
+              %li
+                %a#register{:href => "#", :onclick => "tpxHighLevelRegisterInitControl()"} Mi cuenta
+              %li#projectslinkli
+                %a#projectslist{:href => "#", :onclick => "tpxMyProjectsOnClick()"} Mis Proyectos
+              %li#basketlinkli
+                %a#basketlink{:href => "#", :onclick => "tpxBasketOnClick()"}
+                  %i.fa.fa-shopping-cart
+              .container
+                #shoppigncartcontents.shopping-cart
+                  .shopping-cart-header
+                    %i.fa.fa-shopping-cart.cart-icon
+                    %span#basketcountbadgeinner.badge 0
+                    %a#emptyBasketButton.emptycart{:href => "#", :onclick => "tpxHighLevelEmptyBasketControl()"} Empty Basket
+                  / end shopping-cart-header
+                  #basketItemListContainer.shopping-cart-items-container
+                    %ul#basketItemList.shopping-cart-items
+                    #loadingspinnercontainer.loadingspinnercontainer
+                      %i#loadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
+                  %a#checkoutbutton.button{:href => "#", :onclick => "tpxHighLevelCheckoutControl()"} Checkout
+                / end shopping-cart
+              / end container
+              .container
+                #projectlistcontents.projectlist
+                  #projectsItemListContainer.projectlist-items-container
+                    %ul#projectsItemList.shopping-cart-items
+                    #projectloadingspinnercontainer.loadingspinnercontainer
+                      %i#projectloadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
+                  / end shopping-cart
+                / end container
+
     = yield
 
     #fh5co-footer{:role => "contentinfo"}
