@@ -17,6 +17,7 @@
 //= require jquery.waypoints.min
 //= require owl.carousel.min
 //= require jquery.countTo
+//= require tpxHighLevelBasketAPI_alboomaker
 //= require main
 //= require bootstrap.min
 //= require jquery.easing.1.3
@@ -24,6 +25,5 @@
 //= require jquery.style.switcher
 //= require modernizr-2.6.2.min
 //= require respond.min
-//= require tpxHighLevelBasketAPI_alboomaker
 //= require basicModal.min
 //= require_tree .
