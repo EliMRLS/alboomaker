@@ -20,6 +20,7 @@
 //= require tpxHighLevelBasketAPI_alboomaker
 //= require main
 //= require bootstrap.min
+//= require google_map
 //= require jquery.easing.1.3
 //= require jquery.min
 //= require jquery.style.switcher
