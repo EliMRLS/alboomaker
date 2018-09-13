@@ -4,7 +4,7 @@ Version 1.4.0 - Friday, 15th July 2016
 Copyright 2011 - 2016 Taopix Limited
 */
 
-var kServerURL = ''; // kServerURL needs to be set to the weburl for the corresponding brand in Taopix Control Centre.
+var kServerURL = 'http://alboomaker.alboomaker.com'; // kServerURL needs to be set to the weburl for the corresponding brand in Taopix Control Centre.
 var gBasketCount = 0;
 var gBasketLoaded = false;
 var gProjectListLoaded = false;
@@ -84,8 +84,8 @@ function tpxGetBrowserLocale()
 
 function tpxGetUrlVar(key)
 {
-	var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search); 
-	return result && unescape(result[1]) || ""; 
+	var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search);
+	return result && unescape(result[1]) || "";
 }
 
 function tpxGetLocaleString(pLocalizedString)
@@ -96,7 +96,7 @@ function tpxGetLocaleString(pLocalizedString)
 	var defaultLanguage = '';
 
 	var locale = tpxGetBrowserLocale();
-	
+
 	var locale2 = locale.substring(0, 2);
 
 	var localizedStringList = pLocalizedString.split('<p>');
@@ -161,17 +161,17 @@ function tpxGetLocaleString(pLocalizedString)
 function tpxGetXMLHTTP()
 {
    	var xhttp;
-	
-	if (window.XMLHttpRequest) 
+
+	if (window.XMLHttpRequest)
 	{
 		xhttp = new XMLHttpRequest();
-	} 
-	else 
+	}
+	else
 	{
 		// code for IE6, IE5
 		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	
+
     return xhttp;
 }
 
@@ -192,13 +192,13 @@ function tpxReadCookie(pName)
 			return c.substring(nameEQ.length, c.length);
 		}
 	}
-	
+
 	return null;
 }
 
 
-function tpxCreateCookie(name, value, expires) 
-{   
+function tpxCreateCookie(name, value, expires)
+{
 	document.cookie = name + "=" + value + "; expires=" + expires + "; path=/";
 }
 
@@ -214,13 +214,13 @@ function tpxGenerateID()
 	var timeStamp = String(date.getTime());
 	var len = timeStamp.length;
 	var charCode = 0;
-  
-	for (var i = 0; i < len; i++) 
+
+	for (var i = 0; i < len; i++)
   	{
     	charCode = timeStamp.charCodeAt(i);
     	result += 138 - charCode - i;
   	}
-	
+
   return result;
 }
 
@@ -241,7 +241,7 @@ function tpxIsEmpty(obj)
 function tpxParamString(pSourceString)
 {
     var args = arguments;
-    
+
     for(var i = 0; i < arguments.length; i++)
     {
         pSourceString = pSourceString.replace("^" + String(i-1), args[i]);
@@ -280,7 +280,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 	var mawID = 0;
 	var mawIDLookup = tpxReadCookie('mawhluid');
 	var basketRefLookUpValue = tpxReadCookie('mawebhlbr');
-	
+
 	// if the unique high level cookie has not been created then we must create it.
     if ((mawIDLookup != null) || (mawIDLookup != ''))
     {
@@ -299,7 +299,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 		tpxCreateCookie("mawssoa", cookieData, "Fri, 31 Dec 9999 23:59:59 GMT");
 
 	}
-   		
+
 	switch (pRequestFunction)
 	{
 		case 'tpxHighLevelCheckUserSessionControl':
@@ -335,7 +335,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 			{
 				performRequest = false
 			}
-			
+
 		break;
 		case 'tpxHighLevelGetProjectListControl':
 			fsAction = '?fsaction=OnlineAPI.hlViewProjectsList';
@@ -345,7 +345,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 			{
 				performRequest = false
 			}
-			
+
 		break;
 		case 'tpxHighLevelEmptyBasketControl':
 			fsAction = '?fsaction=OnlineAPI.emptyBasket';
@@ -357,12 +357,12 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 		break;
 		case 'tpxHighLevelCheckoutControl':
 			fsAction = '?fsaction=OnlineAPI.checkout';
-			callback = tpxHighLevelCheckoutView;		
+			callback = tpxHighLevelCheckoutView;
 		break;
 		case 'tpxHighLevelSignInInitControl':
 		case 'tpxHighLevelSignInInitControl2':
 			fsAction = '?fsaction=OnlineAPI.signInInit';
-			
+
 			if (pRequestFunction == 'tpxHighLevelSignInInitControl')
 			{
 				callback = tpxHighLevelSignInInitView;
@@ -386,7 +386,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 			callback = tpxHighLevelLogoutView;
 		break;
 	}
-	
+
 	serverPage = kServerURL + fsAction;
 
 	for (var key in pSSOParams)
@@ -399,7 +399,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 		/* get an XMLHttpRequest object for use */
 		/* make xmlhttp local so we can run simlutaneous requests */
 		var xmlhttp = tpxGetXMLHTTP();
-	
+
 		if (requestMethod == 'POST')
 		{
 			pParams['mawebhluid'] = mawID;
@@ -410,9 +410,9 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 
 			xmlhttp.open('POST', serverPage, false);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-	
-			var postParams = '';			
-			
+
+			var postParams = '';
+
 			for (var key in pParams)
 			{
 				postParams += '&' + key + '=' + encodeURIComponent(pParams[key]);
@@ -425,7 +425,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 
 			xmlhttp.open("GET", serverPage, true);
 		}
-	
+
 		xmlhttp.onreadystatechange = function()
 		{
 			if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200))
@@ -442,12 +442,12 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 							basketRef = responseObj.basketref;
 							basketCookieExpiryTime = responseObj.basketcookieexpirytime;
 							userCookieExpiryTime = responseObj.usercookieexpirytime;
-					
+
 							var date = new Date();
 							date.setTime(basketCookieExpiryTime * 1000);
-						
+
 							tpxCreateCookie("mawebhlbr", basketRef, date.toGMTString());
-							
+
 							var date = new Date();
 							date.setTime(userCookieExpiryTime * 1000);
 
@@ -471,12 +471,12 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 							basketRef = responseObj.basketref;
 							basketCookieExpiryTime = responseObj.basketcookieexpirytime;
 							userCookieExpiryTime = responseObj.usercookieexpirytime;
-					
+
 							var date = new Date();
 							date.setTime(basketCookieExpiryTime * 1000);
-							
+
 							tpxCreateCookie("mawebhlbr", basketRef, date.toGMTString());
-							
+
 							var date = new Date();
 							date.setTime(userCookieExpiryTime * 1000);
 
@@ -499,7 +499,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 						{
 							document.location = responseObj.ssoredirect;
 						}
-						
+
 					break;
 					case 'tpxHighLevelCreateProjectControl':
 
@@ -507,7 +507,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 						{
 							basketRef = responseObj.basketref;
 							cookieExpiryTime = responseObj.cookieexpirytime;
-					
+
 							var date = new Date();
 							date.setTime(cookieExpiryTime * 1000);
 
@@ -529,7 +529,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 
 						tpxDeleteCookie("mawuli");
 						tpxDeleteCookie("mawebhlbr");
-						
+
 						gBasketCount = 0;
 						gProjectListCount = 0;
 
@@ -539,7 +539,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 						{
 							tpxDeleteCookie("mawuli");
 							tpxDeleteCookie("mawebhlbr");
-							
+
 							gBasketCount = 0;
 							gProjectListCount = 0;
 						}
@@ -551,7 +551,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 						{
 							tpxDeleteCookie("mawuli");
 							tpxDeleteCookie("mawebhlbr");
-							
+
 							gBasketCount = 0;
 							gProjectListCount = 0;
 						}
@@ -562,16 +562,16 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 						{
 							gBasketCount--;
 						}
-						
+
 						gProjectListLoaded = false;
-						
+
 					break;
 					case 'tpxHighLevelEmptyBasketControl':
 						gBasketCount = 0;
 						gProjectListLoaded = false;
 					break;
 				}
-				
+
 				if (pRequestFunction == 'tpxHighLevelRenameProjectControl')
 				{
 					callback(responseObj, pParams['fromprojectlist']);
@@ -582,7 +582,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 				}
 			}
 		};
-	
+
 		if (requestMethod == 'POST')
 		{
 			xmlhttp.send(postParams);
@@ -590,7 +590,7 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 		else
 		{
 			xmlhttp.send(null);
-		}  
+		}
     }
     else
     {
@@ -604,9 +604,9 @@ function tpxHighLevelCreateProjectControl(pURLParams)
 	var paramArray = new Object();
 	paramArray['id'] = pURLParams;
 	paramArray['ssoenabled'] = gSSOEnabled;
-	
+
 	tpxHighLevelProcessRequest('tpxHighLevelCreateProjectControl', true, paramArray, {});
-	
+
 	return false;
 }
 
@@ -644,10 +644,10 @@ function tpxHighLevelCreateProjectView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
@@ -658,20 +658,20 @@ function tpxHighLevelCheckUserSessionControl(pLookUpToken)
 	paramArray['ssoenabled'] = gSSOEnabled;
 
 	tpxHighLevelProcessRequest('tpxHighLevelCheckUserSessionControl', true, paramArray, {});
-	
+
 	return false;
 }
 
 function tpxHighLevelCheckUserSessionView(pJsonResponseObject)
-{	
+{
 	if (pJsonResponseObject.result > 0)
 	{
-		var resultAlert = 
+		var resultAlert =
 		{
 			body: '<p>' + pJsonResponseObject.resultmessage + '</p>',
-			buttons: 
+			buttons:
 			{
-				action: 
+				action:
 				{
 					title: tpxGetLocaleString(kStr_ButtonOK),
 					fn: function()
@@ -681,10 +681,10 @@ function tpxHighLevelCheckUserSessionView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
@@ -731,7 +731,7 @@ function tpxHighLevelBasketLocalise()
 	{
 		projectslist.innerHTML = tpxGetLocaleString(kStr_LabelMyProjects);
 	}
-	
+
 	return false;
 }
 
@@ -744,7 +744,7 @@ function tpxHighLevelEditProjectControl(pProjectRef, pCanUnlock, pForceKill)
 	paramArray['ssoenabled'] = gSSOEnabled;
 
 	tpxHighLevelProcessRequest('tpxHighLevelEditProjectControl', true, paramArray, {});
-	
+
 	return false;
 }
 
@@ -767,7 +767,7 @@ function tpxHighLevelEditProjectView(pJsonResponseObject)
 		var resultAlert = {
 			body: '<p>' + pJsonResponseObject.resultmessage + '</p>',
 			buttons: {
-				action: 
+				action:
 				{
 					title: tpxGetLocaleString(kStr_ButtonContinue),
 					fn: function()
@@ -796,10 +796,10 @@ function tpxHighLevelEditProjectView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
@@ -807,7 +807,7 @@ function tpxHighLevelDuplicateProjectControl(pProjectRef, pCurrentProjectName)
 {
 	var paramArray = new Object();
 	paramArray['projectref'] = pProjectRef;
-	
+
 	var projectNameInput = {
 			body: '<p>' + tpxGetLocaleString(kStr_LabelProjectName) +':</p><input class="basicModal__text" type="text" name="tpxprojectname" placeholder="'+ tpxGetLocaleString(kStr_LabelProjectName) + ' "value="' + pCurrentProjectName + '">',
 			buttons: {
@@ -819,7 +819,7 @@ function tpxHighLevelDuplicateProjectControl(pProjectRef, pCurrentProjectName)
 					title: tpxGetLocaleString(kStr_ButtonContinue),
 					fn: function(data) {
 
-						if (data.tpxprojectname.length<1) 
+						if (data.tpxprojectname.length<1)
 						{
 							return basicModal.error('tpxprojectname');
 						}
@@ -834,9 +834,9 @@ function tpxHighLevelDuplicateProjectControl(pProjectRef, pCurrentProjectName)
 				}
 			}
 		}
-	
+
 	basicModal.show(projectNameInput);
-	
+
 	return false;
 }
 
@@ -857,29 +857,29 @@ function tpxHighLevelDuplicateProjectView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
 function tpxHighLevelRenameProjectControl(pItemID, pProjectRef, pFromProjectList)
 {
 	var paramArray = new Object();
-	
+
 	paramArray['projectref'] = pProjectRef;
 	paramArray['basketitemidtoupdate'] = pItemID;
-	
+
 	var itemIDPrefix = '';
-		
+
 	if (pFromProjectList)
 	{
 		itemIDPrefix = 'projectlist'
 	}
-	
+
 	var projectName = document.getElementById(itemIDPrefix + 'item-renameproject-' + pItemID).dataset.projectname;
-	
+
 	var projectNameInput = {
 			body: '<p>' + tpxGetLocaleString(kStr_LabelRenameProject) +':</p><input class="basicModal__text" type="text" name="tpxprojectname" placeholder="'+ tpxGetLocaleString(kStr_LabelProjectName) + '" value="' + projectName + '">',
 			buttons: {
@@ -891,7 +891,7 @@ function tpxHighLevelRenameProjectControl(pItemID, pProjectRef, pFromProjectList
 					title: tpxGetLocaleString(kStr_ButtonContinue),
 					fn: function(data) {
 
-						if (data.tpxprojectname.length<1) 
+						if (data.tpxprojectname.length<1)
 						{
 							return basicModal.error('tpxprojectname');
 						}
@@ -907,26 +907,26 @@ function tpxHighLevelRenameProjectControl(pItemID, pProjectRef, pFromProjectList
 				}
 			}
 		}
-	
+
 	basicModal.show(projectNameInput);
 }
 
 function tpxHighLevelRenameProjectView(pJsonResponseObject, pFromProjectList)
 {
 	if (pJsonResponseObject.result == 0)
-	{		
+	{
 		var itemIDPrefix = '';
-		
+
 		if (pFromProjectList)
 		{
 			itemIDPrefix = 'projectlist'
 		}
-		
+
 		document.getElementById(itemIDPrefix + 'item-projectname-' + pJsonResponseObject.basketitemidtoupdate).innerHTML = pJsonResponseObject.newprojectname;
 		document.getElementById(itemIDPrefix + 'item-renameproject-' + pJsonResponseObject.basketitemidtoupdate).dataset.projectname = pJsonResponseObject.newprojectname;
 	}
 	else
-	{		
+	{
 		var resultAlert = {
 			body: '<p>' + pJsonResponseObject.resultmessage + '</p>',
 			buttons: {
@@ -936,10 +936,10 @@ function tpxHighLevelRenameProjectView(pJsonResponseObject, pFromProjectList)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
@@ -950,9 +950,9 @@ function tpxHighLevelDeleteProjectControl(pItemID, pProjectRef, pProjectName, pC
 	paramArray['forcekill'] = pForceKill;
 	paramArray['canunlock'] = pCanUnlock;
 	paramArray['itemtoremoveid'] = pItemID;
-	
+
 	var projectName = document.getElementById('projectlistitem-renameproject-' + pItemID).dataset.projectname;
-	
+
 	var deleteProjectPrompt = {
 			body: '<p>' + tpxParamString(tpxGetLocaleString(kStr_MessageDeleteProjectConfirmation), projectName) + '</p>',
 			buttons: {
@@ -963,17 +963,17 @@ function tpxHighLevelDeleteProjectControl(pItemID, pProjectRef, pProjectName, pC
 				action: {
 					title: tpxGetLocaleString(kStr_ButtonYes),
 					fn: function(data) {
-						
+
 						tpxHighLevelProcessRequest('tpxHighLevelDeleteProjectControl', false, paramArray, {});
-						
+
 						basicModal.close();
 					}
 				}
 			}
 		}
-	
+
 	basicModal.show(deleteProjectPrompt);
-	
+
 	return false;
 }
 
@@ -983,7 +983,7 @@ function tpxHighLevelDeleteProjectView(pJsonResponseObject)
 	var nodeToRemove = document.getElementById('projectlistitem' + pJsonResponseObject.itemtoremoveid);
 
 	parentNode.removeChild(nodeToRemove);
-	
+
 	return false;
 }
 
@@ -999,13 +999,13 @@ function tpxHighLevelBasketInitialise()
     var ssoAction = '';
     var ssoActionParam = [];
     var ssoKey = tpxGetUrlVar('ssokey');
-    
+
     // if the unique high level cookie has not been created then we must create it.
     if ((mawIDLookup == null) || (mawIDLookup == ''))
     {
     	tpxCreateMAWHLUIDCookie();
     }
-   	
+
    	// Single item workflow has been invoked with Multi Line Basket enabled on the brand
    	// we need to take the user straight into the project
    	if (hlCreateID != '')
@@ -1013,9 +1013,9 @@ function tpxHighLevelBasketInitialise()
    		tpxHighLevelCreateProjectControl('id='+hlCreateID);
    		return false;
    	}
-   	
+
    	tpxHighLevelBasketLocalise();
-   	
+
    	// check to see if we have a basket cookie and if we have use the cookie value for the basketref.
     if ((basketRefLookUpValue != null) && (basketRefLookUpValue != ''))
     {
@@ -1073,7 +1073,7 @@ function tpxHighLevelBasketInitialise()
     isLoggedInLookUpValue = tpxReadCookie('mawuli');
 
     tpxHighLevelLoggedInStatusCallBack(isLoggedInLookUpValue);
-    
+
 }
 
 function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
@@ -1082,7 +1082,7 @@ function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
 	var registerLabel = tpxGetLocaleString(kStr_LabelRegister);
 	var signInLogoutButtonAction = tpxHighLevelSignInInitControl;
 	var registerMyAccountButtonAction = tpxHighLevelRegisterInitControl;
-	
+
 	if (pIsSignedIn == 1)
 	{
 		signInLabel = tpxGetLocaleString(kStr_LabelLogout);
@@ -1098,7 +1098,7 @@ function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
 		{
 			basketList.innerHTML = '';
 		}
-		
+
 		var projectList = document.getElementById('projectsItemList');
 
 		if (projectList)
@@ -1106,7 +1106,7 @@ function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
 			projectList.innerHTML = '';
 		}
 	}
-	
+
 	var signInButton = document.getElementById('signIn');
 
 	if (signInButton)
@@ -1114,7 +1114,7 @@ function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
 		signInButton.innerHTML = signInLabel;
 		signInButton.onclick = signInLogoutButtonAction;
 	}
-	
+
 	var registerButton = document.getElementById('register');
 
 	if (registerButton)
@@ -1125,9 +1125,9 @@ function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
 }
 
 function tpxHighLevelLogoutControl()
-{	
+{
 	tpxHighLevelProcessRequest('tpxHighLevelLogoutControl', false, {}, {});
-	
+
 	return false;
 }
 
@@ -1142,7 +1142,7 @@ function tpxHighLevelLogoutView(pJsonResponseObject)
 		else
 		{
 			tpxHighLevelLoggedInStatusCallBack(0);
-			
+
 			var basketCountElement = document.getElementById('basketcountbadgeinner');
 
 			if (basketCountElement)
@@ -1151,14 +1151,14 @@ function tpxHighLevelLogoutView(pJsonResponseObject)
 			}
 		}
 	}
-	
+
 	return false;
 }
 
 function tpxHighLevelGetBasketContentsControl()
-{			
+{
 	tpxHighLevelProcessRequest('tpxHighLevelGetBasketContentsControl', false, {}, {});
-	
+
 	return false;
 }
 
@@ -1169,51 +1169,51 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 	if ((gBasketCount > 0) && (! responseEmpty))
 	{
 		var basketItems = pJsonResponseObject.items;
-		
+
 		var basketCountBadgeInner = document.getElementById('basketcountbadgeinner');
 
 		if (basketCountBadgeInner)
 		{
 			basketCountBadgeInner.innerHTML = gBasketCount;
 		}
-		
+
 		for (var i = 0; i < gBasketCount; i++)
-		{							
+		{
 			var currentProjectRef = basketItems[i].projectref;
-			
+
 			var listItemElement = document.createElement('li');
 				listItemElement.className = "clearfix";
 				listItemElement.id = "basketitem" + (i + 1);
 				listItemElement.dataset.projectref = basketItems[i].projectref;
-			
+
 			var projectInfoContainerElement = document.createElement('div');
 				projectInfoContainerElement.className = "projectinfocontainer";
-			
+
 			var infoContainerElemet = document.createElement('div');
 				infoContainerElemet.className = "infocontainer";
-			
+
 			var projectNameElement = document.createElement('span');
 
 			projectNameElement.className = "item-projectname";
 			projectNameElement.id = "item-projectname-" + (i + 1);
-			
+
 			var projectNameText = document.createTextNode(basketItems[i].projectname);
 			projectNameElement.appendChild(projectNameText);
-			
+
 			var layoutNameElement = document.createElement('span');
 			layoutNameElement.className = "item-layoutname";
-			
+
 			var layoutNameText = document.createTextNode(tpxGetLocaleString(kStr_LabelLayoutName) + ': ' + tpxGetLocaleString(basketItems[i].layoutname));
 			layoutNameElement.appendChild(layoutNameText);
-			
+
 			var projectActionsContainer = document.createElement('div');
 			projectActionsContainer.id = "projectactionscontainer";
-			
+
 			var editProjectLink = document.createElement('a');
 			editProjectLink.className = "projectaction";
 			editProjectLink.href = "#";
 			editProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelEdit);
-			
+
 			editProjectLink.onclick = (function()
 			{
 				var currentCount = i;
@@ -1223,14 +1223,14 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 					tpxHighLevelEditProjectControl(currentProjectRef, 1, 1);
 				}
 			})();
-			
+
 			var renameProjectLink = document.createElement('a');
 			renameProjectLink.id = "item-renameproject-" + (i + 1);
 			renameProjectLink.className = "projectaction";
 			renameProjectLink.href = "#";
 			renameProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelRename);
 			renameProjectLink.dataset.projectname = basketItems[i].projectname;
-			
+
 			renameProjectLink.onclick = (function()
 			{
 				var currentCount = i;
@@ -1241,12 +1241,12 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 					tpxHighLevelRenameProjectControl((currentCount + 1), currentProjectRef, false);
 				}
 			})();
-			
+
 			var duplicateProjectLink =  document.createElement('a');
 			duplicateProjectLink.className = "projectaction";
 			duplicateProjectLink.href = "#";
 			duplicateProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelDuplicate);
-			
+
 			duplicateProjectLink.onclick = (function()
 			{
 				 var currentCount = i;
@@ -1257,19 +1257,19 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 					tpxHighLevelDuplicateProjectControl(currentProjectRef, currentProjectName);
 				}
 			})();
-			
-			
+
+
 			projectActionsContainer.appendChild(editProjectLink);
 			projectActionsContainer.appendChild(renameProjectLink);
 			projectActionsContainer.appendChild(duplicateProjectLink);
-			
-			
+
+
 			var removeFromBasketElement =  document.createElement('div');
 			removeFromBasketElement.className = "removefrombasket";
-			
+
 			var basketRemoveIconElement = document.createElement('i');
 			basketRemoveIconElement.className = "remove-icon fa fa-times";
-			 
+
 			basketRemoveIconElement.onclick = (function()
 			{
 				var currentCount = i;
@@ -1279,33 +1279,33 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 					tpxHighLevelRemoveItemFromBasketControl('basketitem' + (currentCount + 1), currentProjectRef);
 				}
 			})();
-			
+
 			removeFromBasketElement.appendChild(basketRemoveIconElement);
-			
+
 			infoContainerElemet.appendChild(projectNameElement);
 			infoContainerElemet.appendChild(layoutNameElement);
 			infoContainerElemet.appendChild(projectActionsContainer);
-										
+
 			projectInfoContainerElement.appendChild(infoContainerElemet);
 			projectInfoContainerElement.appendChild(removeFromBasketElement);
-						
+
 			listItemElement.appendChild(projectInfoContainerElement);
-			
+
 			var basketItemContainer = document.getElementById('basketItemList');
-			basketItemContainer.appendChild(listItemElement);						
+			basketItemContainer.appendChild(listItemElement);
 		}
 	}
-	
+
 	// hide the loading spinner
 	document.getElementById('loadingspinner').style.display = 'none';
-	
+
 	return false;
 }
 
 function tpxHighLevelGetProjectListControl()
-{	
+{
 	tpxHighLevelProcessRequest('tpxHighLevelGetProjectListControl', false, {}, {});
-		
+
 	return false;
 }
 
@@ -1316,43 +1316,43 @@ function tpxHighLevelGetProjectListView(pJsonResponseObject)
 	if ((gProjectListCount > 0) && (! responseEmpty))
 	{
 		var basketItems = pJsonResponseObject.items;
-		
+
 		for (var i = 0; i < gProjectListCount; i++)
-		{							
+		{
 			var currentProjectRef = basketItems[i].projectref;
-			
+
 			var listItemElement = document.createElement('li');
 			listItemElement.className = "clearfix";
 			listItemElement.id = "projectlistitem" + (i + 1);
 			listItemElement.dataset.projectref = basketItems[i].projectref;
-			
+
 			var projectInfoContainerElement = document.createElement('div');
 			projectInfoContainerElement.className = "projectinfocontainer";
-			
+
 			var infoContainerElemet = document.createElement('div');
 			infoContainerElemet.className = "infocontainer";
-			
+
 			var projectNameElement = document.createElement('span');
 			projectNameElement.className = "item-projectname";
 			projectNameElement.id = "projectlistitem-projectname-" + (i + 1);
-			
+
 			var projectNameText = document.createTextNode(basketItems[i].projectname);
 			projectNameElement.appendChild(projectNameText);
-			
+
 			var layoutNameElement = document.createElement('span');
 			layoutNameElement.className = "item-layoutname";
-			
+
 			var layoutNameText = document.createTextNode(tpxGetLocaleString(kStr_LabelLayoutName) + ': ' + tpxGetLocaleString(basketItems[i].layoutname));
 			layoutNameElement.appendChild(layoutNameText);
-			
+
 			var projectActionsContainer = document.createElement('div');
 			projectActionsContainer.id = "projectlistactionscontainer";
-			
+
 			var editProjectLink = document.createElement('a');
 			editProjectLink.className = "projectaction";
 			editProjectLink.href = "#";
 			editProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelEdit);
-			
+
 			editProjectLink.onclick = (function()
 			{
 				var currentCount = i;
@@ -1362,14 +1362,14 @@ function tpxHighLevelGetProjectListView(pJsonResponseObject)
 					tpxHighLevelEditProjectControl(currentProjectRef, 1, 1);
 				}
 			})();
-			
+
 			var renameProjectLink = document.createElement('a');
 			renameProjectLink.id = "projectlistitem-renameproject-" + (i + 1);
 			renameProjectLink.className = "projectaction";
 			renameProjectLink.href = "#";
 			renameProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelRename);
 			renameProjectLink.dataset.projectname = basketItems[i].projectname;
-			
+
 			renameProjectLink.onclick = (function()
 			{
 				var currentCount = i;
@@ -1380,12 +1380,12 @@ function tpxHighLevelGetProjectListView(pJsonResponseObject)
 					tpxHighLevelRenameProjectControl((currentCount + 1), currentProjectRef, true);
 				}
 			})();
-			
+
 			var duplicateProjectLink =  document.createElement('a');
 			duplicateProjectLink.className = "projectaction";
 			duplicateProjectLink.href = "#";
 			duplicateProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelDuplicate);
-			
+
 			duplicateProjectLink.onclick = (function()
 			{
 				 var currentCount = i;
@@ -1396,12 +1396,12 @@ function tpxHighLevelGetProjectListView(pJsonResponseObject)
 					tpxHighLevelDuplicateProjectControl(currentProjectRef, currentProjectName);
 				}
 			})();
-			
+
 			var deleteProjectLink =  document.createElement('a');
 			deleteProjectLink.className = "projectaction";
 			deleteProjectLink.href = "#";
 			deleteProjectLink.innerHTML = tpxGetLocaleString(kStr_LabelDelete);
-			
+
 			deleteProjectLink.onclick = (function()
 			{
 				 var currentCount = i;
@@ -1412,40 +1412,40 @@ function tpxHighLevelGetProjectListView(pJsonResponseObject)
 					tpxHighLevelDeleteProjectControl((currentCount + 1), currentProjectRef, currentProjectName, 1, 0);
 				}
 			})();
-			
-			
+
+
 			projectActionsContainer.appendChild(editProjectLink);
 			projectActionsContainer.appendChild(renameProjectLink);
 			projectActionsContainer.appendChild(duplicateProjectLink);
 			projectActionsContainer.appendChild(deleteProjectLink);
-			
+
 			infoContainerElemet.appendChild(projectNameElement);
 			infoContainerElemet.appendChild(layoutNameElement);
 			infoContainerElemet.appendChild(projectActionsContainer);
-										
+
 			projectInfoContainerElement.appendChild(infoContainerElemet);
-						
+
 			listItemElement.appendChild(projectInfoContainerElement);
 
 			var projectListItemContainer = document.getElementById('projectsItemList');
-			projectListItemContainer.appendChild(listItemElement);						
+			projectListItemContainer.appendChild(listItemElement);
 		}
 	}
-	
+
 	// hide the loading spinner
 	document.getElementById('projectloadingspinner').style.display = 'none';
-	
+
 	return false;
 }
 
 function tpxHighLevelRemoveItemFromBasketControl(pItemID, pProjectRef)
-{	
+{
 	var paramArray = new Object();
 	paramArray['itemtoremoveid'] = pItemID;
 	paramArray['projectref'] = pProjectRef;
-	
+
 	tpxHighLevelProcessRequest('tpxHighLevelRemoveItemFromBasketControl', false, paramArray, {});
-	
+
 	return false;
 }
 
@@ -1455,17 +1455,17 @@ function tpxHighLevelRemoveItemFromBasketView(pJsonResponseObject)
 	var nodeToRemove = document.getElementById(pJsonResponseObject.itemtoremoveid);
 
 	parentNode.removeChild(nodeToRemove);
-	
+
 	var basketCountElement = document.getElementById('basketcountbadgeinner');
 	basketCountElement.innerHTML = gBasketCount;
-	
+
 	return false;
 }
 
 function tpxHighLevelEmptyBasketControl()
-{		
+{
 	tpxHighLevelProcessRequest('tpxHighLevelEmptyBasketControl', false, {}, {});
-	
+
 	return false;
 }
 
@@ -1473,25 +1473,25 @@ function tpxHighLevelEmptyBasketView(pJsonResponseObject)
 {
 	var basketList = document.getElementById('basketItemList');
 	basketList.innerHTML = '';
-	
+
 	var basketCountElement = document.getElementById('basketcountbadgeinner');
 	basketCountElement.innerHTML = gBasketCount;
-	
+
 	return false;
 }
- 
+
 function tpxHighLevelCheckoutControl()
-{	
+{
 	var paramArray = new Object();
 	paramArray['ssoenabled'] = gSSOEnabled;
 
 	tpxHighLevelProcessRequest('tpxHighLevelCheckoutControl', true, paramArray, {});
-	
+
 	return false;
 }
 
 function tpxHighLevelCheckoutView(pJsonResponseObject)
-{	
+{
 	if (pJsonResponseObject.result == 0)
 	{
 		shoppingCartURL = pJsonResponseObject.shoppingcarturl;
@@ -1500,12 +1500,12 @@ function tpxHighLevelCheckoutView(pJsonResponseObject)
 	}
 	else
 	{
-		var resultAlert = 
+		var resultAlert =
 		{
 			body: '<p>' + pJsonResponseObject.resultmessage + '</p>',
-			buttons: 
+			buttons:
 			{
-				action: 
+				action:
 				{
 					title: tpxGetLocaleString(kStr_ButtonOK),
 					fn: function()
@@ -1515,10 +1515,10 @@ function tpxHighLevelCheckoutView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
@@ -1527,9 +1527,9 @@ function tpxHighLevelSignInInitControl()
 	var paramArray = new Object();
 	paramArray['groupcode'] = '';
 	paramArray['ssoenabled'] = gSSOEnabled;
-	
+
 	tpxHighLevelProcessRequest('tpxHighLevelSignInInitControl', true, paramArray, {});
-	
+
 	return false;
 }
 
@@ -1561,11 +1561,11 @@ function tpxHighLevelSignInInitView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
-	
+
+
 	return false;
 }
 
@@ -1573,14 +1573,14 @@ function tpxHighLevelRegisterInitControl()
 {
 	var paramArray = new Object();
 	paramArray['groupcode'] = '';
-	
+
 	tpxHighLevelProcessRequest('tpxHighLevelRegisterInitControl', false, paramArray, {});
-	
+
 	return false;
 }
 
 function tpxHighLevelRegisterInitView(pJsonResponseObject)
-{	
+{
 	if (pJsonResponseObject.result == 0)
 	{
 		registerURL = pJsonResponseObject.signinurl;
@@ -1597,17 +1597,17 @@ function tpxHighLevelRegisterInitView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
+
 	return false;
 }
 
 function tpxHighLevelMyAccountInitControl()
 {
 	tpxHighLevelProcessRequest('tpxHighLevelMyAccountInitControl', false, {}, {});
-	
+
 	return false;
 }
 
@@ -1629,23 +1629,23 @@ function tpxHighLevelMyAccountInitView(pJsonResponseObject)
 				}
 			}
 		}
-		
+
 		basicModal.show(resultAlert);
 	}
-	
-	
+
+
 	return false;
 }
 
 function tpxBasketOnClick()
-{	
+{
 	var cartContainer = document.getElementById('shoppigncartcontents');
-	
+
 	if (cartContainer.style.display == 'block')
 	{
 		var basketItemContainer = document.getElementById('basketItemList');
 		cartContainer.style.display = "none";
-		
+
 		document.getElementById('loadingspinner').style.display = 'block';
 	}
 	else
@@ -1653,35 +1653,35 @@ function tpxBasketOnClick()
 		tpxHighLevelGetBasketContentsControl();
 		cartContainer.style.display = "block";
 	}
-	
+
 	return false;
 }
 
 function tpxMyProjectsOnClick()
 {
 	var projectListContainer = document.getElementById('projectlistcontents');
-	
+
 	if (projectListContainer.style.display == 'block')
 	{
 		var projectItemContainer = document.getElementById('projectsItemList');
 		projectListContainer.style.display = "none";
-		
+
 		document.getElementById('projectloadingspinner').style.display = 'block';
 	}
 	else
 	{
 		tpxHighLevelGetProjectListControl();
 		projectListContainer.style.display = "block";
-		
+
 		var documentWidth = window.innerWidth;
 		var myProjectsBounds =  document.getElementById('projectslist').getBoundingClientRect();
 		var projectContainerBounds = projectListContainer.getBoundingClientRect();
 		var projectContentsWidth = projectContainerBounds.width / 2;
 		var middleMyProjectsPosition = myProjectsBounds.left + (myProjectsBounds.width / 2);
-		
+
 		var left = (middleMyProjectsPosition - projectContentsWidth);
 		var right = projectContainerBounds.width + myProjectsBounds.left;
-	
+
 		if (left < 0)
 		{
 			left = 10;
@@ -1691,8 +1691,8 @@ function tpxMyProjectsOnClick()
 		{
 			left = (documentWidth - projectContainerBounds.width) - 10;
 		}
-		
-		
+
+
 		document.getElementById('projectlistcontents').style.left = left + 'px';
 	}
 }
