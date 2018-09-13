@@ -48,29 +48,6 @@
                 %a#basketlink{:href => "#", :onclick => "tpxBasketOnClick()"}
                   %i.fa.fa-shopping-cart
 
-              .container
-                #shoppigncartcontents.shopping-cart
-                  .shopping-cart-header
-                    %i.fa.fa-shopping-cart.cart-icon
-                    %span#basketcountbadgeinner.badge 0
-                    %a#emptyBasketButton.emptycart{:href => "#", :onclick => "tpxHighLevelEmptyBasketControl()"} Empty Basket
-                  / end shopping-cart-header
-                  #basketItemListContainer.shopping-cart-items-container
-                    %ul#basketItemList.shopping-cart-items
-                    #loadingspinnercontainer.loadingspinnercontainer
-                      %i#loadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
-                  %a#checkoutbutton.button{:href => "#", :onclick => "tpxHighLevelCheckoutControl()"} Checkout
-                / end shopping-cart
-              / end container
-              .container
-                #projectlistcontents.projectlist
-                  #projectsItemListContainer.projectlist-items-container
-                    %ul#projectsItemList.shopping-cart-items
-                    #projectloadingspinnercontainer.loadingspinnercontainer
-                      %i#projectloadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
-                  / end shopping-cart
-                / end container
-
     = yield
 
     #fh5co-footer{:role => "contentinfo"}
@@ -96,17 +73,39 @@
                 =image_tag ('pay1.png')
           .col-md-4.to-animate
             %h3.section-title Escríbenos
-            %form.contact-form
-              = form_tag({controller: "application", action: "send_email"}, method: "post") do
-                .form-group
-                  = label_tag :sender_name, "Nombre", class: "sr-only"
-                  = text_field_tag :sender_name, nil, placeholder: "Nombre", class: "form-control", id: "name"
-                .form-group
-                  = label_tag :sender_email, "Email", class: "sr-only"
-                  = text_field_tag :sender_email, nil, placeholder: "Email", class: "form-control", id: "email"
-                .form-group
-                  = label_tag :sender_message, "Mensaje", class: "sr-only"
-                  = text_area_tag :sender_message, nil, placeholder: "Mensaje", rows: 7, class: "form-control", id: "message"
-                .form-group
-                  = submit_tag "Enviar", class: "btn btn-send-message btn-md", id: "btn-submit"
+            = form_tag :action => 'send_email', class: "contact-form" do
+              .form-group
+                = label_tag :sender_name, "Nombre", class: "sr-only"
+                = text_field_tag "contact[sender_name]", nil, placeholder: "Nombre", class: "form-control", id: "name"
+              .form-group
+                = label_tag :sender_email, "Email", class: "sr-only"
+                = text_field_tag "contact[sender_email]", nil, placeholder: "Email", class: "form-control", id: "email"
+              .form-group
+                = label_tag :sender_message, "Mensaje", class: "sr-only"
+                = text_area_tag "contact[sender_message]", nil, placeholder: "Mensaje", rows: 7, class: "form-control", id: "message"
+              .form-group
+                = submit_tag "Enviar", class: "btn btn-send-message btn-md", id: "btn-submit"
 
+
+.container
+  #shoppigncartcontents.shopping-cart
+    .shopping-cart-header
+      %i.fa.fa-shopping-cart.cart-icon
+      %span#basketcountbadgeinner.badge 0
+      %a#emptyBasketButton.emptycart{:href => "#", :onclick => "tpxHighLevelEmptyBasketControl()"} Empty Basket
+    / end shopping-cart-header
+    #basketItemListContainer.shopping-cart-items-container
+      %ul#basketItemList.shopping-cart-items
+      #loadingspinnercontainer.loadingspinnercontainer
+        %i#loadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
+    %a#checkoutbutton.button{:href => "#", :onclick => "tpxHighLevelCheckoutControl()"} Checkout
+  / end shopping-cart
+/ end container
+.container
+  #projectlistcontents.projectlist
+    #projectsItemListContainer.projectlist-items-container
+      %ul#projectsItemList.shopping-cart-items
+      #projectloadingspinnercontainer.loadingspinnercontainer
+        %i#projectloadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
+    / end shopping-cart
+  / end container

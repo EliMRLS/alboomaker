@@ -410,6 +410,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-work,
 #fh5co-counters,
 #fh5co-pricing,
+#fh5co-options,
 #fh5co-blog {
   padding: 8em 0;
 }
@@ -424,12 +425,13 @@ h1, h2, h3, h4, h5, h6 {
   #fh5co-work,
   #fh5co-counters,
   #fh5co-pricing,
+  #fh5co-options,
   #fh5co-blog {
     padding: 3em 0;
   }
 }
 
-#fh5co-services {
+#fh5co-services, #fh5co-options {
   padding-bottom: 0;
 }
 
@@ -782,7 +784,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
-.fh5co-services {
+.fh5co-services, .fh5co-options {
   padding-bottom: 4em;
 }
 .fh5co-services .box-services {

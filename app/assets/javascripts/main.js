@@ -356,6 +356,50 @@ function servicesAnimate() {
 
 };
 
+function optionsAnimate() {
+	var services = $('#fh5co-options');
+	if ( services.length > 0 ) {
+
+		services.waypoint( function( direction ) {
+
+			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+
+
+				var sec = services.find('.to-animate').length,
+					sec = parseInt((sec * 200) + 400);
+
+				setTimeout(function() {
+					services.find('.to-animate').each(function( k ) {
+						var el = $(this);
+
+						setTimeout ( function () {
+							el.addClass('fadeInUp animated');
+						},  k * 200, 'easeInOutExpo' );
+
+					});
+				}, 200);
+
+				setTimeout(function() {
+					services.find('.to-animate-2').each(function( k ) {
+						var el = $(this);
+
+						setTimeout ( function () {
+							el.addClass('bounceIn animated');
+						},  k * 200, 'easeInOutExpo' );
+
+					});
+				}, sec);
+
+
+				$(this.element).addClass('animated');
+
+			}
+		} , { offset: '80%' } );
+
+	}
+
+};
+
 function teamAnimate() {
 	var team = $('#fh5co-team');
 	if ( team.length > 0 ) {
@@ -589,6 +633,7 @@ $(document).on('turbolinks:load', gettingStartedAnimate);
 $(document).on('turbolinks:load', gettingStarted2Animate);
 $(document).on('turbolinks:load', pricingAnimate);
 $(document).on('turbolinks:load', servicesAnimate);
+$(document).on('turbolinks:load', optionsAnimate);
 $(document).on('turbolinks:load', teamAnimate);
 $(document).on('turbolinks:load', faqAnimate);
 $(document).on('turbolinks:load', trustedAnimate);
