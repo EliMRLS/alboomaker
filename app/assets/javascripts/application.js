@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= xxxrrequire turbolinks
+//= xxxrequire turbolinks
 //= require jquery.stellar.min
 //= require jquery.waypoints.min
 //= require owl.carousel.min
