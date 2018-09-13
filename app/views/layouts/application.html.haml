@@ -43,15 +43,16 @@
               %li
                 %a{"data-nav-section" => "help"}
                   %span Ayuda
-              %li
-                %a#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Login
-              %li
-                %a#register{:href => "#", :onclick => "tpxHighLevelRegisterInitControl()"} Mi cuenta
+              %li.call-to-action
+                %a.sign-up#signIn{:href => "#", :onclick => "tpxHighLevelSignInInitControl()"} Login
+              %li.call-to-action
+                %a.sign-up#register{:href => "#", :onclick => "tpxHighLevelRegisterInitControl()"} Mi cuenta
               %li#projectslinkli
                 %a#projectslist{:href => "#", :onclick => "tpxMyProjectsOnClick()"} Mis Proyectos
               %li#basketlinkli
                 %a#basketlink{:href => "#", :onclick => "tpxBasketOnClick()"}
                   %i.fa.fa-shopping-cart
+
 
     .container
       #shoppigncartcontents.shopping-cart
@@ -87,7 +88,8 @@
             %p
               CONDICIONES GENERALES
               %br
-              Aquí podrás leer todos los términos y condiciones de nuestra empresa.
+              =link_to "Aquí", legal_path
+              podrás leer todos los términos y condiciones de nuestra empresa.
             %p.copy-right
               © 2018 Alboomaker
           .col-md-4.to-animate
