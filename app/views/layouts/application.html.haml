@@ -79,56 +79,34 @@
           .col-md-4.to-animate
             %h3.section-title Sobre nosotros
             %p Diseñamos y fabricamos en España. Alboomaker pertenece a un grupo que lleva en el sector de la fotografía desde 2010.
+            %p
+              CONDICIONES GENERALES
+              %br
+              Aquí podrás leer todos los términos y condiciones de nuestra empresa.
             %p.copy-right
               © 2018 Alboomaker
-              = succeed "All" do
-                %br/
-              %br/
-              Designed by
-              %a{:href => "http://freehtml5.co/", :target => "_blank"} FREEHTML5.co
-              Demo Images:
-              %a{:href => "http://unsplash.com/", :target => "_blank"} Unsplash
           .col-md-4.to-animate
-            %h3.section-title Our Address
-            %ul.contact-info
-              %li
-                %i.icon-map-marker>
-                198 West 21th Street, Suite 721 New York NY 10016
-              %li
-                %i.icon-phone>
-                + 1235 2355 98
-              %li
-                %i.icon-envelope
-                %a{:href => "#"} info@yoursite.com
-              %li
-                %i.icon-globe2
-                %a{:href => "#"} www.yoursite.com
-            %h3.section-title Connect with Us
+            %h3.section-title Atención al cliente
+            %p
+              Si tienes cualquier duda, puedes contactar con nuestro servicio de atención al cliente enviando un email a
+              = mail_to "hello@alboomaker.com"
+              o rellenando este formulario.
             %ul.social-media
               %li
-                %a.facebook{:href => "#"}
-                  %i.icon-facebook
-              %li
-                %a.twitter{:href => "#"}
-                  %i.icon-twitter
-              %li
-                %a.dribbble{:href => "#"}
-                  %i.icon-dribbble
-              %li
-                %a.github{:href => "#"}
-                  %i.icon-github-alt
+                =image_tag ('pay1.png')
           .col-md-4.to-animate
-            %h3.section-title Drop us a line
+            %h3.section-title Escríbenos
             %form.contact-form
-              .form-group
-                %label.sr-only{:for => "name"} Name
-                %input#name.form-control{:placeholder => "Name", :type => "name"}
-              .form-group
-                %label.sr-only{:for => "email"} Email
-                %input#email.form-control{:placeholder => "Email", :type => "email"}
-              .form-group
-                %label.sr-only{:for => "message"} Message
-                %textarea#message.form-control{:placeholder => "Message", :rows => "7"}
-              .form-group
-                %input#btn-submit.btn.btn-send-message.btn-md{:type => "submit", :value => "Send Message"}
+              = form_tag({controller: "application", action: "send_email"}, method: "post") do
+                .form-group
+                  = label_tag :sender_name, "Nombre", class: "sr-only"
+                  = text_field_tag :sender_name, nil, placeholder: "Nombre", class: "form-control", id: "name"
+                .form-group
+                  = label_tag :sender_email, "Email", class: "sr-only"
+                  = text_field_tag :sender_email, nil, placeholder: "Email", class: "form-control", id: "email"
+                .form-group
+                  = label_tag :sender_message, "Mensaje", class: "sr-only"
+                  = text_area_tag :sender_message, nil, placeholder: "Mensaje", rows: 7, class: "form-control", id: "message"
+                .form-group
+                  = submit_tag "Enviar", class: "btn btn-send-message btn-md", id: "btn-submit"
 

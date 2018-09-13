@@ -28,6 +28,7 @@ a {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+  cursor: pointer !important;
 }
 a:hover, a:active, a:focus {
   color: #FA5555;
@@ -1126,6 +1127,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 24px;
   margin-right: 10px;
 }
+
+#fh5co-footer .social-media li img {
+  width: 100%;
+}
+
 #fh5co-footer .social-media li a {
   color: #00ADB5;
 }
