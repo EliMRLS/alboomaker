@@ -4,42 +4,6 @@
 }
 
 
-.lighter-text {
-  color: #ABB0BE;
-}
-
-.main-color-text {
-  color: #ABB0BE;
-}
-
-nav {
-  padding: 20px 0 40px 0;
-  background: #F8F8F8;
-  font-size: 16px;
-}
-nav .navbar-left {
-  float: left;
-}
-nav .navbar-right {
-  float: right;
-}
-nav ul li {
-  display: inline;
-  padding-left: 10px;
-}
-nav ul li a {
-  color: #777777;
-  text-decoration: none;
-}
-nav ul li a:hover {
-  color: black;
-}
-
-.container {
-  margin: auto;
-  width: 94%;
-}
-
 .badge {
   background: linear-gradient(to bottom, #96ef00 0%, #4d8f00 60%, #4d8f00 100%);
   border-radius: 10px;
@@ -54,8 +18,9 @@ nav ul li a:hover {
 }
 
 .shopping-cart {
-  margin: 20px 0;
-  float: right;
+	z-index: 100;
+	position: absolute;
+  margin: 90px 1010px;
   background: white;
   width: 320px;
   position: relative;
@@ -67,7 +32,7 @@ nav ul li a:hover {
 .projectlist{
 	z-index:100;
 	position: absolute;
-	margin: 20px 0;
+	margin: 90px 20px;
   	background: white;
   	width: 320px;
   	border-radius: 3px;
