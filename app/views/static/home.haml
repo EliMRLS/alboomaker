@@ -1,4 +1,4 @@
-%section#fh5co-home{"data-section" => "home", "data-stellar-background-ratio" => "0.5", :style => "background-image: url(#{asset_path 'full_image_3.jpg'});"}
+%section#fh5co-home{"data-section" => "home", "data-stellar-background-ratio" => "0.5", :style => "background-image: url(#{asset_path 'cover.jpg'});"}
   .gradient
   .container
     .text-wrap
@@ -32,7 +32,8 @@
       .row
         - @products.each do |product|
           .col-md-6.to-animate.blog
-            .blog-grid{:style => "background-image: url(images/full_image_5.jpg);"}
+            - pic = product.code + ".jpg"
+            .blog-grid{:style => "background-image: url(#{asset_path pic});"}
             - href = CGI::parse(URI.parse(Product.find_by_code("#{product.code}")&.online_url).query)["id"].first
             %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               .desc-grid
@@ -99,7 +100,7 @@
   .fh5co-options
     .container
       .core-features
-        .grid2.to-animate{:style => "background-image: url(#{asset_path 'full_image_5.jpg'});"}
+        .grid2.to-animate{:style => "background-image: url(#{asset_path 'opciones.jpg'});"}
         .grid2
           .core-f
             .section-heading
@@ -182,6 +183,126 @@
                   %p.love
                     %a{:href => "#"}
                       %i.icon-heart-o
+            .col-md-6
+              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-5.jpg'});"}
+                .desc
+                  %h3
+                    %a{:href => "#"} Work Title Here
+                  %span Web Design
+                  %p.download
+                    %a{:href => "#"}
+                      %i.icon-download
+                  %p.love
+                    %a{:href => "#"}
+                      %i.icon-heart-o
+          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-9.jpg'});"}
+            .desc
+              %h3
+                %a{:href => "#"} Work Title Here
+              %span Web Design
+              %p.download
+                %a{:href => "#"}
+                  %i.icon-download
+              %p.love
+                %a{:href => "#"}
+                  %i.icon-heart-o
+        .col-md-4.text-center
+          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-4.jpg'});"}
+            .desc
+              %h3
+                %a{:href => "#"} Work Title Here
+              %span Web Design
+              %p.download
+                %a{:href => "#"}
+                  %i.icon-download
+              %p.love
+                %a{:href => "#"}
+                  %i.icon-heart-o
+          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-3.jpg'});"}
+            .desc
+              %h3
+                %a{:href => "#"} Work Title Here
+              %span Web Design
+              %p.download
+                %a{:href => "#"}
+                  %i.icon-download
+              %p.love
+                %a{:href => "#"}
+                  %i.icon-heart-o
+          .row
+            .col-md-6
+              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-10.jpg'});"}
+                .desc
+                  %h3
+                    %a{:href => "#"} Work Title Here
+                  %span Web Design
+                  %p.download
+                    %a{:href => "#"}
+                      %i.icon-download
+                  %p.love
+                    %a{:href => "#"}
+                      %i.icon-heart-o
+            .col-md-6
+              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-11.jpg'});"}
+                .desc
+                  %h3
+                    %a{:href => "#"} Work Title Here
+                  %span Web Design
+                  %p.download
+                    %a{:href => "#"}
+                      %i.icon-download
+                  %p.love
+                    %a{:href => "#"}
+                      %i.icon-heart-o
+        .col-md-4.text-center
+          .row
+            .col-md-6
+              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-6.jpg'});"}
+                .desc
+                  %h3
+                    %a{:href => "#"} Work Title Here
+                  %span Web Design
+                  %p.download
+                    %a{:href => "#"}
+                      %i.icon-download
+                  %p.love
+                    %a{:href => "#"}
+                      %i.icon-heart-o
+            .col-md-6
+              .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-7.jpg'});"}
+                .desc
+                  %h3
+                    %a{:href => "#"} Work Title Here
+                  %span Web Design
+                  %p.download
+                    %a{:href => "#"}
+                      %i.icon-download
+                  %p.love
+                    %a{:href => "#"}
+                      %i.icon-heart-o
+          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-8.jpg'});"}
+            .desc
+              %h3
+                %a{:href => "#"} Work Title Here
+              %span Web Design
+              %p.download
+                %a{:href => "#"}
+                  %i.icon-download
+              %p.love
+                %a{:href => "#"}
+                  %i.icon-heart-o
+          .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-12.jpg'});"}
+            .desc
+              %h3
+                %a{:href => "#"} Work Title Here
+              %span Web Design
+              %p.download
+                %a{:href => "#"}
+                  %i.icon-download
+              %p.love
+                %a{:href => "#"}
+                  %i.icon-heart-o
+
 
 %section#fh5co-pricing{"data-section" => "pricing"}
   .fh5co-pricing
