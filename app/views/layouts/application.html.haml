@@ -6,8 +6,10 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     %title Alboomaker
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    / = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    / = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body{onload: "tpxHighLevelBasketInitialise()"}
     %header#fh5co-header{:role => "banner"}
       .fluid-container
@@ -47,6 +49,7 @@
               %li#basketlinkli
                 %a#basketlink{:href => "#", :onclick => "tpxBasketOnClick()"}
                   %i.fa.fa-shopping-cart
+
     .container
       #shoppigncartcontents.shopping-cart
         .shopping-cart-header
@@ -107,5 +110,4 @@
                 = text_area_tag "contact[sender_message]", nil, placeholder: "Mensaje", rows: 7, class: "form-control", id: "message"
               .form-group
                 = submit_tag "Enviar", class: "btn btn-send-message btn-md", id: "btn-submit"
-
 
