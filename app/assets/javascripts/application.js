@@ -18,6 +18,7 @@
 //= require owl.carousel.min
 //= require jquery.countTo
 //= require tpxHighLevelBasketAPI_alboomaker
+//= require basicModal.min
 //= require main
 //= require bootstrap.min
 //= require google_map
@@ -26,5 +27,4 @@
 //= require jquery.style.switcher
 //= require modernizr-2.6.2.min
 //= require respond.min
-//= require basicModal.min
 //= require_tree .
