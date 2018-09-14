@@ -820,14 +820,14 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0;
   font-size: 60px;
 //  color: rgba(0, 0, 0, 0.5);
-  color: black;
+  color: #ff776f;
   z-index: 1;
 }
 
 .fh5co-services .box-services .icon span img {
   position: absolute;
   left: 0;
-  top: -12px;
+  top: -3px;
   right: 0;
   display: block;
   margin-bottom: 0;
@@ -835,7 +835,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 60px;
 //  color: rgba(0, 0, 0, 0.5);
   z-index: 1;
-  width: 70%;
+  width: 50%;
   margin: auto;
 }
 
@@ -906,12 +906,12 @@ h1, h2, h3, h4, h5, h6 {
 .core-features .grid2 .core-f .core i {
   float: left;
   font-size: 28px;
-  color: black;
+  color: #7f7f7f;
 }
 
 .core-features .grid2 .core-f .core img{
   float: left;
-  width: 15%;
+  width: 10%;
   display: inline-block;
 }
 .core-features .grid2 .core-f .core .fh5co-post {
@@ -1048,6 +1048,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 50px;
   margin-bottom: 0px;
 }
+
+.section-heading img{
+  width: 2%;
+}
+
 .section-heading h2 {
   margin: 0 0 20px 0;
   font-size: 24px;
@@ -1062,21 +1067,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-heading h2 span {
   position: relative;
 }
-.section-heading h2 span:after, .section-heading h2 span:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 7px;
-  height: 7px;
-  background: #00ADB5;
-  left: -7px;
-  margin-left: -20px;
-  bottom: 6px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-}
+
 .section-heading h2 span:before {
   left: 0px;
   background: #FA5555;
