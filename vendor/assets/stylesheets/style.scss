@@ -781,7 +781,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   list-style: none;
   text-align: center;
-  font-size: 15px;
+  font-size: 12.5px;
+}
+
+#fh5co-pricing .pricing-info .title{
+  font-size: 13.5px;
+  color: black;
 }
 
 .fh5co-services, .fh5co-options {
@@ -815,9 +820,25 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0;
   font-size: 60px;
 //  color: rgba(0, 0, 0, 0.5);
-  color: #ff776f;
+  color: black;
   z-index: 1;
 }
+
+.fh5co-services .box-services .icon span img {
+  position: absolute;
+  left: 0;
+  top: -12px;
+  right: 0;
+  display: block;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 60px;
+//  color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 70%;
+  margin: auto;
+}
+
 .fh5co-services .box-services .icon span:before {
   position: absolute;
   top: 8px;
@@ -885,6 +906,13 @@ h1, h2, h3, h4, h5, h6 {
 .core-features .grid2 .core-f .core i {
   float: left;
   font-size: 28px;
+  color: black;
+}
+
+.core-features .grid2 .core-f .core img{
+  float: left;
+  width: 15%;
+  display: inline-block;
 }
 .core-features .grid2 .core-f .core .fh5co-post {
   padding-left: 50px;
@@ -1187,7 +1215,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-footer #btn-submit {
   color: rgba(255, 255, 255, 0.9) !important;
-  background: #FA5555 !important;
+  background: #ff776f !important;
 }
 
 .btn {

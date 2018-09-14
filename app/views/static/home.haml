@@ -30,16 +30,48 @@
             .col-md-8.col-md-offset-2.subtext
               %h3.to-animate Selecciona el formato que más te guste y crea fácilmente tu álbum de fotos digital totalmente personalizado y con calidad Premium. Inmortaliza tus mejores momentos y consérvalos para siempre con Alboomaker.
       .row
-        - @products.each do |product|
-          .col-md-6.to-animate.blog
-            - pic = product.code + ".jpg"
-            .blog-grid{:style => "background-image: url(#{asset_path pic});"}
-            - href = CGI::parse(URI.parse(Product.find_by_code("#{product.code}")&.online_url).query)["id"].first
-            %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
-              .desc-grid
-                %h3= product.name.humanize
-              .reading
-                %i.icon-arrow-right2
+        .col-md-6.to-animate.blog
+          .blog-grid{:style => "background-image: url(#{asset_path 'PB_AP_A5.jpg'});"}
+          - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A5")&.online_url).query)["id"].first
+          %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
+            .desc-grid
+              %h3 Album Apaisado A5
+            .reading
+              %i.icon-arrow-right2
+        .col-md-6.to-animate.blog
+          .blog-grid{:style => "background-image: url(#{asset_path 'PB_A4.jpg'});"}
+          - href = CGI::parse(URI.parse(Product.find_by_code("PB_A4")&.online_url).query)["id"].first
+          %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
+            .desc-grid
+              %h3 Album A4
+            .reading
+              %i.icon-arrow-right2
+      .row
+        .col-md-6.to-animate.blog
+          .blog-grid{:style => "background-image: url(#{asset_path 'PB_20X20.jpg'});"}
+          - href = CGI::parse(URI.parse(Product.find_by_code("PB_20X20")&.online_url).query)["id"].first
+          %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
+            .desc-grid
+              %h3 Album 20x20
+            .reading
+              %i.icon-arrow-right2
+        .col-md-6.to-animate.blog
+          .blog-grid{:style => "background-image: url(#{asset_path 'PB_AP_A4.jpg'});"}
+          - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A4")&.online_url).query)["id"].first
+          %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
+            .desc-grid
+              %h3 Album Apaisado A4+
+            .reading
+              %i.icon-arrow-right2
+      .row
+        .col-md-6.to-animate.blog
+          .blog-grid{:style => "background-image: url(#{asset_path 'PB_30X30.jpg'});"}
+          - href = CGI::parse(URI.parse(Product.find_by_code("PB_30X30")&.online_url).query)["id"].first
+          %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
+            .desc-grid
+              %h3 Album 30x30
+            .reading
+              %i.icon-arrow-right2
 
 
 %section#fh5co-services.fh5co-bg-color{"data-section" => "howto"}
@@ -66,7 +98,8 @@
           .box-services
             .icon.to-animate
               %span
-                %i.icon-screen-desktop
+                / %i.icon-screen-desktop
+                %i= image_tag 'layflat.png'
             .fh5co-post.to-animate
               %h3 Tecnología Lay-Flat
               %p
@@ -108,21 +141,21 @@
               .row
                 .col-md-6
                   .core
-                    %i.icon-columns2.to-animate-2
+                    .to-animate-2= image_tag 'paginas.png'
                     .fh5co-post.to-animate
                       %h3 Páginas
                       %p
                         Para que pongas todas las fotos que quieras, en nuestros
                         formatos, excepto en el A5, puedes añadir hasta 120 páginas.
                   .core
-                    %i.icon-laptop.to-animate-2
+                    .to-animate-2= image_tag 'portada.png'
                     .fh5co-post.to-animate
                       %h3 Plastificado portada
                       %p
                         Para que pongas todas las fotos que quieras, en nuestros
                         formatos, excepto en el A5, puedes añadir hasta 120 páginas.
                   .core
-                    %i.icon-chemistry.to-animate-2
+                    .to-animate-2= image_tag 'plastificado.png'
                     .fh5co-post.to-animate
                       %h3 Plastificado páginas
                       %p
@@ -142,7 +175,7 @@
                         Si quieres que tu pedido legue cuanto antes, reduce los
                         días de producción a 3 laborables con esta opción.
                   .core
-                    %i.icon-envelope.to-animate-2
+                    .to-animate-2= image_tag 'cantidades.png'
                     .fh5co-post.to-animate
                       %h3 Grandes cantidades
                       %p
@@ -162,8 +195,8 @@
           .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-1.jpg'});"}
             .desc
               %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
+                %a{:href => "#"} FOTOS DE VERANO
+              %span ¿Qué son las mejores?
               %p.download
                 %a{:href => "#"}
                   %i.icon-download
@@ -175,8 +208,8 @@
               .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-2.jpg'});"}
                 .desc
                   %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
+                    %a{:href => "#"}
+                  %span
                   %p.download
                     %a{:href => "#"}
                       %i.icon-download
@@ -198,8 +231,8 @@
           .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-9.jpg'});"}
             .desc
               %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
+                %a{:href => "#"} ARRIESGATE CON FOTOS B&W
+              %span ¿Lo harías?
               %p.download
                 %a{:href => "#"}
                   %i.icon-download
@@ -210,8 +243,8 @@
           .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-4.jpg'});"}
             .desc
               %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
+                %a{:href => "#"} ALBUM APAISADO A5
+              %span Desde 30€
               %p.download
                 %a{:href => "#"}
                   %i.icon-download
@@ -221,8 +254,8 @@
           .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-3.jpg'});"}
             .desc
               %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
+                %a{:href => "#"} CHEFCHAOUEN
+              %span Marruecos
               %p.download
                 %a{:href => "#"}
                   %i.icon-download
@@ -234,8 +267,8 @@
               .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-10.jpg'});"}
                 .desc
                   %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
+                    %a{:href => "#"} POLAROID LAND 95
+                  %span Año 1947
                   %p.download
                     %a{:href => "#"}
                       %i.icon-download
@@ -260,8 +293,8 @@
               .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-6.jpg'});"}
                 .desc
                   %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
+                    %a{:href => "#"} ¿COMIDA O FOTOS?
+                  %span ¿O las dos?
                   %p.download
                     %a{:href => "#"}
                       %i.icon-download
@@ -272,8 +305,8 @@
               .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-7.jpg'});"}
                 .desc
                   %h3
-                    %a{:href => "#"} Work Title Here
-                  %span Web Design
+                    %a{:href => "#"}
+                  %span
                   %p.download
                     %a{:href => "#"}
                       %i.icon-download
@@ -283,8 +316,8 @@
           .project-grid.to-animate-2{:style => "background-image: url(#{asset_path 'project-8.jpg'});"}
             .desc
               %h3
-                %a{:href => "#"} Work Title Here
-              %span Web Design
+                %a{:href => "#"} ALBUM 20x20
+              %span Desde 34€
               %p.download
                 %a{:href => "#"}
                   %i.icon-download
@@ -325,7 +358,13 @@
             %ul.pricing-info
               %li 20 págs. 30€/31,40€/31,80€
               %li 40 págs. 40,59€/42,48€/43,02€
+              %li &nbsp;
+              %li &nbsp;
+              %li &nbsp;
+              %li &nbsp;
             %p
+              - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A5")&.online_url).query)["id"].first
+              %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
         .col-md-3.col-sm-6
           .price-box.popular
@@ -344,6 +383,8 @@
               %li 100 págs. 93,64€/98,01€/99,25€
               %li 120 págs. 109,77€/114,90€/116,36€
             %p
+              - href = CGI::parse(URI.parse(Product.find_by_code("PB_20X20")&.online_url).query)["id"].first
+              %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
         .clearfix.visible-sm-block
         .col-md-3.col-sm-6.to-animate
@@ -363,6 +404,8 @@
               %li 100 págs. 95,82€/100,29€/101,57€
               %li 120 págs. 112,14€/117,37€/118,86€
             %p
+              - href = CGI::parse(URI.parse(Product.find_by_code("PB_A4")&.online_url).query)["id"].first
+              %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
         .col-md-3.col-sm-6.to-animate
           .price-box.popular
@@ -381,6 +424,8 @@
               %li 100 págs. 102,81€/107,61€/108,98€
               %li 120 págs. 118,44€/123,96€/125,54€
             %p
+              - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A4")&.online_url).query)["id"].first
+              %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
 
       .row
@@ -402,22 +447,30 @@
               %li 100 págs. 109,06€/114,15€/115,61€
               %li 120 págs. 124,69€/130,51€/132,17€
             %p
+              - href = CGI::parse(URI.parse(Product.find_by_code("PB_30X30")&.online_url).query)["id"].first
+              %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
 
         .col-md-3.col-sm-6
           .price-box.popular
             .popular-text Envío y Extras
-            %p Los precios corresponden a sin plastificar/plast. brillo/plast. mate
+            %p Los precios corresponden a envío Península/ Baleares / Unidad Extra
             %hr/
             %ul.pricing-info
-              %li 20 págs. 45,43€/47,55€/48,15€
-              %li 40 págs. 62,19€/65,09€/65,92€
-              %li 60 págs. 77,81€/81,44€/82,48€
-              %li 80 págs. 93,44€/97,80€/99,04€
-              %li 100 págs. 109,06€/114,15€/115,61€
-              %li 120 págs. 124,69€/130,51€/132,17€
-            %p
-              %a.btn.btn-primary{:href => "#"} Empezar
+              %li.title Apaisado A5
+              %li 6,90€/8,90€/+3€
+              %li.title Álbum 20x20
+              %li 7,90€/9,90€/+3€
+              %li.title Álbum A4
+              %li 7,90€/9,90€/+3€
+              %li.title Apaisado A4+
+              %li 8,90€/10,90€/+3€
+              %li.title Álbum 30x30
+              %li 8,90€/10,90€/+3€
+              %li.title Producción Rápida
+              %li 2,90€
+              %li.title Portada Mate
+              %li 0,90€
 
 %section#fh5co-faq.fh5co-bg-color{"data-section" => "help"}
   .fh5co-faq
