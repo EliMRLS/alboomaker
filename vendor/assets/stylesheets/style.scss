@@ -82,6 +82,11 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 20px;
   }
 }
+@media screen and (max-width: 992px) and (max-width: 480px) {
+  .navbar-collapse {
+    height: 100vh !important;
+  }
+}
 #fh5co-header #navbar li a {
   font-family: "PT Sans", Arial, serif;
   color: white;
@@ -186,6 +191,11 @@ h1, h2, h3, h4, h5, h6 {
   -ms-border-radius: 30px;
   border-radius: 30px;
 }
+@media screen and (max-width: 992px) and (max-width: 480px) {
+  #fh5co-header #navbar li.call-to-action a {
+    width: 50%;
+  }
+}
 
 #fh5co-header #navbar li.call-to-action a span:before {
   background-color: transparent;
@@ -193,6 +203,12 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header #navbar li.call-to-action a.sign-up {
   border: 2px solid white;
   background: white;
+}
+
+@media screen and (max-width: 992px) and (max-width: 480px) {
+  #fh5co-header #navbar li.call-to-action a.sign-up {
+    margin: 10px auto;
+  }
 }
 
 #fh5co-header #navbar li.call-to-action a.log-in {
@@ -205,6 +221,11 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
   background-position: center;
   width: 150px;
+}
+@media screen and (max-width: 992px) and (max-width: 480px) {
+  #fh5co-header .navbar-brand{
+    margin-left: 5%;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -306,9 +327,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: transparent;
   background-size: cover;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   position: relative;
   width: 100%;
-  background-color: #e6e6e6;
+  background-color: white;
   color: #fff;
 }
 #fh5co-home a {
@@ -398,6 +420,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid #ff776f;
   background: #ff776f;
   text-decoration: none !important;
+  margin-bottom: 15px;
 }
 
 #fh5co-services,
@@ -730,9 +753,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-pricing .price-box.popular .popular-text {
   top: 0;
-  left: 50%;
-  margin-left: -65px;
-  margin-top: -2em;
+  left: 0;
+  right: 0;
+  margin: -2em auto 0 auto;
+  width: 200px;
   position: absolute;
   padding: 4px 20px;
   background: #00ADB5;
@@ -1051,6 +1075,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-heading img{
   width: 2%;
+  padding-bottom: 5px;
+}
+@media screen and (max-width: 992px) and (max-width: 480px) {
+  .section-heading img{
+    width: 7%;
+    vertical-align: initial;
+    padding-bottom: initial;
+  }
 }
 
 .section-heading h2 {
