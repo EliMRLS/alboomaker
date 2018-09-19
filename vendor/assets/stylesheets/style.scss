@@ -1523,3 +1523,26 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid #00ADB5;
 }
 
+//taopix shopping cart & projects list
+.item-layoutname{
+  font-size: 0.8em !important;
+}
+
+.shopping-cart-items{
+  list-style: none !important;
+  padding: 5px 0 0 0 !important;
+}
+
+.emptycart{
+  background: #ff776f !important;
+  padding: 5px 8px !important;
+}
+
+#checkoutbutton{
+  background: #43dbab !important;
+}
+
+#basketcountbadgeinner{
+  background: #43dbab !important;
+}
+
