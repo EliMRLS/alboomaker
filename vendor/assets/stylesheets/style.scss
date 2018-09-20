@@ -1546,3 +1546,16 @@ h1, h2, h3, h4, h5, h6 {
   background: #43dbab !important;
 }
 
+.cart-icon{
+  margin-right: 0!important;
+}
+
+#close-cart{
+  float: left;
+  padding-right: 10px;
+}
+
+#close-cart, #close-proj{
+  cursor: pointer;
+}
+
