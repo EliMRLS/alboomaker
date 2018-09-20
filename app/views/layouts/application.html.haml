@@ -57,6 +57,7 @@
     .container
       #shoppigncartcontents.shopping-cart
         .shopping-cart-header
+          %i.fa.fa-times#close-cart
           %i.fa.fa-shopping-cart.cart-icon
           %span#basketcountbadgeinner.badge 0
           %a#emptyBasketButton.emptycart{:href => "#", :onclick => "tpxHighLevelEmptyBasketControl()"} Empty Basket
@@ -66,11 +67,11 @@
           #loadingspinnercontainer.loadingspinnercontainer
             %i#loadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
         %a#checkoutbutton.button{:href => "#", :onclick => "tpxHighLevelCheckoutControl()"} Checkout
-        %i.fa.fa-times#close-cart
       / end shopping-cart
     / end container
     .container
       #projectlistcontents.projectlist
+        %i.fa.fa-times#close-cart
         #projectsItemListContainer.projectlist-items-container
           %ul#projectsItemList.shopping-cart-items
           #projectloadingspinnercontainer.loadingspinnercontainer
@@ -121,8 +122,8 @@
 
 :javascript
   $('#close-cart').click(function(){
-      $('#shoppigncartcontents').remove();
+      $('#shoppigncartcontents').css("display", "none");
     });
   $('#close-proj').click(function(){
-      $('#projectlistcontents').remove();
+      $('#projectlistcontents').css("display", "none");
     });
