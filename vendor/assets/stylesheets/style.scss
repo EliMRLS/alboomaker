@@ -77,6 +77,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 0;
   text-align: center;
 }
+
+@media screen and (min-width: 1025px) {
+  #fh5co-header #navbar .navbar-right {
+    float: right;
+  }
+}
 /*antes era 992*/
 @media screen and (max-width: 1025px) {
   #fh5co-header #navbar .navbar-right {
@@ -154,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scaleX(1);
   background-color: white;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1025px) {
   #fh5co-header #navbar li.active a span:before {
     background-color: transparent;
   }
