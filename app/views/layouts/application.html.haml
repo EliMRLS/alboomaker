@@ -66,6 +66,7 @@
           #loadingspinnercontainer.loadingspinnercontainer
             %i#loadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
         %a#checkoutbutton.button{:href => "#", :onclick => "tpxHighLevelCheckoutControl()"} Checkout
+        %i.fa.fa-times#close-cart
       / end shopping-cart
     / end container
     .container
@@ -74,6 +75,7 @@
           %ul#projectsItemList.shopping-cart-items
           #projectloadingspinnercontainer.loadingspinnercontainer
             %i#projectloadingspinner.fa.fa-spinner.fa-pulse.loading-spinner
+            %i.fa.fa-times#close-proj
         / end shopping-cart
       / end container
 
@@ -116,3 +118,11 @@
               .form-group
                 = submit_tag "Enviar", class: "btn btn-send-message btn-md", id: "btn-submit"
 
+
+:javascript
+  $('#close-cart').click(function(){
+      $('#shoppigncartcontents').remove();
+    });
+  $('#close-proj').click(function(){
+      $('#projectlistcontents').remove();
+    });
