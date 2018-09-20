@@ -4152,7 +4152,7 @@ tbody.collapse.in {
   margin-bottom: 2px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .navbar-right .dropdown-menu {
     right: 0;
     left: auto;
@@ -4671,7 +4671,8 @@ tbody.collapse.in {
 .navbar-header:after {
   clear: both;
 }
-@media (min-width: 768px) {
+/*antes era 768*/
+@media (min-width: 1025px) {
   .navbar-header {
     float: left;
   }
@@ -4695,7 +4696,9 @@ tbody.collapse.in {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 768px) {
+
+ /* antes era 768*/
+@media (min-width: 1025px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -4720,7 +4723,7 @@ tbody.collapse.in {
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px;
 }
-@media (max-device-width: 480px) and (orientation: landscape) {
+@media (max-device-width: 1024px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px;
@@ -4857,7 +4860,8 @@ tbody.collapse.in {
     background-image: none;
   }
 }
-@media (min-width: 768px) {
+/*antes era 768*/
+@media (min-width: 1025px) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -4991,8 +4995,8 @@ tbody.collapse.in {
     margin-right: 15px;
   }
 }
-
-@media (min-width: 768px) {
+/*antes era 768*/
+@media (min-width: 2015px) {
   .navbar-left {
     float: left !important;
   }
