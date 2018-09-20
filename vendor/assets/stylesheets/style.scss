@@ -326,7 +326,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-home {
   background-color: transparent;
   background-size: cover;
-  background-attachment: fixed;
+//  background-attachment: fixed;
   background-repeat: no-repeat;
   position: relative;
   width: 100%;
@@ -1559,3 +1559,8 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+  .shopping-cart {
+    right: 20px !important;
+  }
+}
