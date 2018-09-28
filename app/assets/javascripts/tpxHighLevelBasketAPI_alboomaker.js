@@ -337,6 +337,18 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 			}
 
 		break;
+    ///update external cart
+    case 'tpxHighLevelUpdateCartControl':
+      fsAction = '?fsaction=OnlineAPI.basketInit';
+      callback = tpxHighLevelUpdateCartView;
+
+  		if (gBasketLoaded)
+  		{
+  			performRequest = false
+  		}
+
+    break;
+    ///
 		case 'tpxHighLevelGetProjectListControl':
 			fsAction = '?fsaction=OnlineAPI.hlViewProjectsList';
 			callback = tpxHighLevelGetProjectListView;
@@ -520,6 +532,12 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
 							gBasketCount = responseObj.basketcount;
 
 						break;
+          //update external cart
+          case 'tpxHighLevelUpdateCartControl':
+            gBasketCount = responseObj.basketcount;
+
+            break;
+          ///
 					case 'tpxHighLevelGetProjectListControl':
 							gProjectListLoaded = true;
 							gProjectListCount = responseObj.basketcount;
@@ -694,7 +712,7 @@ function tpxHighLevelBasketLocalise()
 
 	if (basketlinkli)
 	{
-		basketlinkli.innerHTML = '<a href="#" id="basketlink" onClick="tpxBasketOnClick()" id="cart"><i class="fa fa-shopping-cart"></i> ' + gBasketCount + '</a>';
+		basketlinkli.innerHTML = '<a href="#" id="basketlink" onClick="tpxBasketOnClick()" id="cart"><i class="fa fa-shopping-cart"></i> </a>';
 	}
 
 	var emptyBasketButton = document.getElementById('emptyBasketButton');
@@ -1074,6 +1092,10 @@ function tpxHighLevelBasketInitialise()
 
     tpxHighLevelLoggedInStatusCallBack(isLoggedInLookUpValue);
 
+    //update external cart
+    tpxHighLevelUpdateCartControl();
+    //
+
 }
 
 function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
@@ -1149,11 +1171,32 @@ function tpxHighLevelLogoutView(pJsonResponseObject)
 			{
 				basketCountElement.innerHTML = gBasketCount;
 			}
+      var basketCountElementExt = document.getElementById('basketcountbadgeext');
+  		if (basketCountElementExt)
+  		{
+  			basketCountElementExt.innerHTML = gBasketCount;
+  		}
 		}
 	}
 
 	return false;
 }
+
+////update external cart
+function tpxHighLevelUpdateCartControl()
+{
+  tpxHighLevelProcessRequest('tpxHighLevelUpdateCartControl', false, {}, {});
+
+  return false;
+}
+
+function tpxHighLevelUpdateCartView(pJsonResponseObject)
+{
+  var basketCountBadgeOut = document.getElementById('basketcountbadgeext');
+  basketCountBadgeOut.innerHTML = gBasketCount;
+  return false;
+}
+///
 
 function tpxHighLevelGetBasketContentsControl()
 {
@@ -1172,7 +1215,15 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 
 		var basketCountBadgeInner = document.getElementById('basketcountbadgeinner');
 
-		if (basketCountBadgeInner)
+    //
+    var basketCountBadgeExt = document.getElementById('basketcountbadgeext');
+		if (basketCountBadgeExt)
+		{
+			basketCountBadgeExt.innerHTML = gBasketCount;
+		}
+    //
+
+    if (basketCountBadgeInner)
 		{
 			basketCountBadgeInner.innerHTML = gBasketCount;
 		}
@@ -1459,6 +1510,11 @@ function tpxHighLevelRemoveItemFromBasketView(pJsonResponseObject)
 	var basketCountElement = document.getElementById('basketcountbadgeinner');
 	basketCountElement.innerHTML = gBasketCount;
 
+  //
+	var basketCountElementExt = document.getElementById('basketcountbadgeext');
+	basketCountElementExt.innerHTML = gBasketCount;
+  //
+
 	return false;
 }
 
@@ -1476,6 +1532,15 @@ function tpxHighLevelEmptyBasketView(pJsonResponseObject)
 
 	var basketCountElement = document.getElementById('basketcountbadgeinner');
 	basketCountElement.innerHTML = gBasketCount;
+
+  //
+	var basketCountElementExt = document.getElementById('basketcountbadgeext');
+	basketCountElementExt.innerHTML = gBasketCount;
+  //
+
+  //update external cart
+  tpxHighLevelUpdateCartControl();
+  //
 
 	return false;
 }
