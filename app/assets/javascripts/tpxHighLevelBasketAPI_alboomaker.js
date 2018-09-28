@@ -342,10 +342,10 @@ function tpxHighLevelProcessRequest(pRequestFunction, pSetCookie, pParams, pSSOP
       fsAction = '?fsaction=OnlineAPI.basketInit';
       callback = tpxHighLevelUpdateCartView;
 
-  		if (gBasketLoaded)
-  		{
-  			performRequest = false
-  		}
+			if (gBasketLoaded)
+			{
+				performRequest = false
+			}
 
     break;
     ///
@@ -712,7 +712,7 @@ function tpxHighLevelBasketLocalise()
 
 	if (basketlinkli)
 	{
-		basketlinkli.innerHTML = '<a href="#" id="basketlink" onClick="tpxBasketOnClick()" id="cart"><i class="fa fa-shopping-cart"></i> </a>';
+    // basketlinkli.innerHTML = '<a href="#" id="basketlink" onClick="tpxBasketOnClick()" id="cart"><i class="fa fa-shopping-cart"></i> ' + tpxGetLocaleString(kStr_LabelBasket) + '</a>';
 	}
 
 	var emptyBasketButton = document.getElementById('emptyBasketButton');
@@ -1095,7 +1095,6 @@ function tpxHighLevelBasketInitialise()
     //update external cart
     tpxHighLevelUpdateCartControl();
     //
-
 }
 
 function tpxHighLevelLoggedInStatusCallBack(pIsSignedIn)
@@ -1171,11 +1170,14 @@ function tpxHighLevelLogoutView(pJsonResponseObject)
 			{
 				basketCountElement.innerHTML = gBasketCount;
 			}
+
+      //
       var basketCountElementExt = document.getElementById('basketcountbadgeext');
   		if (basketCountElementExt)
   		{
   			basketCountElementExt.innerHTML = gBasketCount;
   		}
+      //
 		}
 	}
 
@@ -1197,6 +1199,7 @@ function tpxHighLevelUpdateCartView(pJsonResponseObject)
   return false;
 }
 ///
+
 
 function tpxHighLevelGetBasketContentsControl()
 {
@@ -1223,7 +1226,7 @@ function tpxHighLevelGetBasketContentsView(pJsonResponseObject)
 		}
     //
 
-    if (basketCountBadgeInner)
+		if (basketCountBadgeInner)
 		{
 			basketCountBadgeInner.innerHTML = gBasketCount;
 		}
@@ -1706,9 +1709,6 @@ function tpxBasketOnClick()
 {
 	var cartContainer = document.getElementById('shoppigncartcontents');
 
-  var projectContainer = document.getElementById('projectlistcontents');
-  projectContainer.style.display = "none";
-
 	if (cartContainer.style.display == 'block')
 	{
 		var basketItemContainer = document.getElementById('basketItemList');
@@ -1729,9 +1729,6 @@ function tpxMyProjectsOnClick()
 {
 	var projectListContainer = document.getElementById('projectlistcontents');
 
-  var cartContainer = document.getElementById('shoppigncartcontents');
-  cartContainer.style.display = "none";
-
 	if (projectListContainer.style.display == 'block')
 	{
 		var projectItemContainer = document.getElementById('projectsItemList');
@@ -1745,25 +1742,25 @@ function tpxMyProjectsOnClick()
 		projectListContainer.style.display = "block";
 
 		var documentWidth = window.innerWidth;
-		var myProjectsBounds =  document.getElementById('projectslist').getBoundingClientRect();
-		var projectContainerBounds = projectListContainer.getBoundingClientRect();
-		var projectContentsWidth = projectContainerBounds.width / 2;
-		var middleMyProjectsPosition = myProjectsBounds.left + (myProjectsBounds.width / 2);
+    var myProjectsBounds =  document.getElementById('projectslist').getBoundingClientRect();
+    var projectContainerBounds = projectListContainer.getBoundingClientRect();
+    var projectContentsWidth = projectContainerBounds.width / 2;
+    var middleMyProjectsPosition = myProjectsBounds.left + (myProjectsBounds.width / 2);
 
-		var left = (middleMyProjectsPosition - projectContentsWidth);
-		var right = projectContainerBounds.width + myProjectsBounds.left;
+    var left = (middleMyProjectsPosition - projectContentsWidth);
+    var right = projectContainerBounds.width + myProjectsBounds.left;
 
-		if (left < 0)
-		{
-			left = 10;
-		}
+    if (left < 0)
+    {
+      left = 10;
+    }
 
-		if (right > documentWidth)
-		{
-			left = (documentWidth - projectContainerBounds.width) - 10;
-		}
+    if (right > documentWidth)
+    {
+      left = (documentWidth - projectContainerBounds.width) - 10;
+    }
 
 
-		document.getElementById('projectlistcontents').style.left = left + 'px';
+    document.getElementById('projectlistcontents').style.left = left + 'px';
 	}
 }
