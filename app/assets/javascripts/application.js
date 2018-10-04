@@ -21,10 +21,10 @@
 //= require basicModal.min
 //= require main
 //= require bootstrap.min
-//= require google_map
 //= require jquery.easing.1.3
 //= require jquery.min
 //= require jquery.style.switcher
 //= require modernizr-2.6.2.min
 //= require respond.min
 //= require_tree .
+
