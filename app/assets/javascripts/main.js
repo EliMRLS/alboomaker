@@ -604,19 +604,14 @@ function counterWayPoint() {
 };
 
 function testimonialCarousel() {
-  $('.owl-carousel-fullwidth').owlCarousel({
-		items: 1,
-		loop: true,
-		margin: 0,
-		responsiveClass: true,
-		nav: false,
-		dots: true,
-		smartSpeed: 800,
-		autoHeight: true,
-		animateIn: 'fadeIn',
-      animateOut: 'fadeOut'
-	});
+  $('[data-toggle="popover"]').popover({
+    container: "body",
+  });
 };
+
+
+
+
 // $(document).on('turbolinks:load', isiPad);
 
 $( document ).ready( isiPad );
@@ -640,5 +635,5 @@ $( document ).ready( faqAnimate);
 $( document ).ready( trustedAnimate);
 $( document ).ready( footerAnimate);
 $( document ).ready( blogAnimate);
-$( document ).ready( counter);
 $( document ).ready( counterWayPoint);
+

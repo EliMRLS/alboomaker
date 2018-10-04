@@ -6661,10 +6661,10 @@ button.close {
   top: 0;
   left: 0;
   z-index: 1060;
+  opacity: 1 !important;
   display: none;
   max-width: 276px;
-  padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 10px;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6682,12 +6682,15 @@ button.close {
   font-size: 14px;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
+
+.popover-header{
+  display: none;
+}
+
 .popover.top {
   margin-top: -10px;
 }
@@ -6699,15 +6702,6 @@ button.close {
 }
 .popover.left {
   margin-left: -10px;
-}
-
-.popover-title {
-  margin: 0;
-  padding: 8px 14px;
-  font-size: 14px;
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #ebebeb;
-  border-radius: 5px 5px 0 0;
 }
 
 .popover-content {
