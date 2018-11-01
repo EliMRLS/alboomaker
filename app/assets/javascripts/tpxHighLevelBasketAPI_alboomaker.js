@@ -1711,7 +1711,10 @@ function tpxBasketOnClick()
 
 	if (cartContainer.style.display == 'block')
 	{
-		var basketItemContainer = document.getElementById('basketItemList');
+    var projectContainer = document.getElementById('projectlistcontents');
+    projectContainer.style.display = "none";
+
+    var basketItemContainer = document.getElementById('basketItemList');
 		cartContainer.style.display = "none";
 
 		document.getElementById('loadingspinner').style.display = 'block';
@@ -1727,7 +1730,10 @@ function tpxBasketOnClick()
 
 function tpxMyProjectsOnClick()
 {
-	var projectListContainer = document.getElementById('projectlistcontents');
+  var cartContainer = document.getElementById('shoppigncartcontents');
+  cartContainer.style.display = "none";
+
+  var projectListContainer = document.getElementById('projectlistcontents');
 
 	if (projectListContainer.style.display == 'block')
 	{
