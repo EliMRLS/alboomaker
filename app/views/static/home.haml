@@ -27,7 +27,7 @@
       .row
         .col-md-6.to-animate.blog
           .blog-grid{:style => "background-image: url(#{asset_path 'PB_AP_A5.jpg'});"}
-          - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A5")&.online_url).query)["id"].first
+          - href = Product.find_by_code("PB_AP_A5")&.online_url_id
           %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
             .desc-grid
               %h3 Album Apaisado A5
@@ -35,7 +35,7 @@
               %i.icon-arrow-right2
         .col-md-6.to-animate.blog
           .blog-grid{:style => "background-image: url(#{asset_path 'PB_A4.jpg'});"}
-          - href = CGI::parse(URI.parse(Product.find_by_code("PB_A4")&.online_url).query)["id"].first
+          - href = Product.find_by_code("PB_A4")&.online_url_id
           %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
             .desc-grid
               %h3 Album A4
@@ -44,7 +44,7 @@
       .row
         .col-md-6.to-animate.blog
           .blog-grid{:style => "background-image: url(#{asset_path 'PB_20X20.jpg'});"}
-          - href = CGI::parse(URI.parse(Product.find_by_code("PB_20X20")&.online_url).query)["id"].first
+          - href = Product.find_by_code("PB_20X20")&.online_url_id
           %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
             .desc-grid
               %h3 Album 20x20
@@ -52,7 +52,7 @@
               %i.icon-arrow-right2
         .col-md-6.to-animate.blog
           .blog-grid{:style => "background-image: url(#{asset_path 'PB_AP_A4.jpg'});"}
-          - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A4")&.online_url).query)["id"].first
+          - href = Product.find_by_code("PB_AP_A4")&.online_url_id
           %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
             .desc-grid
               %h3 Album Apaisado A4+
@@ -61,7 +61,7 @@
       .row
         .col-md-6.to-animate.blog
           .blog-grid{:style => "background-image: url(#{asset_path 'PB_30X30.jpg'});"}
-          - href = CGI::parse(URI.parse(Product.find_by_code("PB_30X30")&.online_url).query)["id"].first
+          - href = Product.find_by_code("PB_30X30")&.online_url_id
           %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
             .desc-grid
               %h3 Album 30x30
@@ -291,7 +291,7 @@
               %li &nbsp;
               %li &nbsp;
             %p
-              - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A5")&.online_url).query)["id"].first
+              - href = Product.find_by_code("PB_AP_A5")&.online_url_id
               %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
         .col-md-3.col-sm-6
@@ -311,7 +311,7 @@
               %li 100 págs. 93,64€/98,01€/99,25€
               %li 120 págs. 109,77€/114,90€/116,36€
             %p
-              - href = CGI::parse(URI.parse(Product.find_by_code("PB_20X20")&.online_url).query)["id"].first
+              - href = Product.find_by_code("PB_20X20")&.online_url_id
               %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
         .clearfix.visible-sm-block
@@ -332,7 +332,7 @@
               %li 100 págs. 95,82€/100,29€/101,57€
               %li 120 págs. 112,14€/117,37€/118,86€
             %p
-              - href = CGI::parse(URI.parse(Product.find_by_code("PB_A4")&.online_url).query)["id"].first
+              - href = Product.find_by_code("PB_A4")&.online_url_id
               %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
         .col-md-3.col-sm-6.to-animate
@@ -352,7 +352,7 @@
               %li 100 págs. 102,81€/107,61€/108,98€
               %li 120 págs. 118,44€/123,96€/125,54€
             %p
-              - href = CGI::parse(URI.parse(Product.find_by_code("PB_AP_A4")&.online_url).query)["id"].first
+              - href = Product.find_by_code("PB_AP_A4")&.online_url_id
               %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
 
@@ -375,7 +375,7 @@
               %li 100 págs. 109,06€/114,15€/115,61€
               %li 120 págs. 124,69€/130,51€/132,17€
             %p
-              - href = CGI::parse(URI.parse(Product.find_by_code("PB_30X30")&.online_url).query)["id"].first
+              - href = Product.find_by_code("PB_30X30")&.online_url_id
               %a.desc{onclick: "tpxHighLevelCreateProjectControl('id=#{href}')", target: "_blank" }
               %a.btn.btn-primary{:href => "#"} Empezar
 

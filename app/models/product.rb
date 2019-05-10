@@ -18,4 +18,9 @@ class Product < ApplicationRecord
 
 
   scope :with_category, ->(category) { where(category: category) }
+
+  def online_url_id
+    CGI::parse(URI.parse(online_url).query)["id"].first if online_url
+  end
+
 end
